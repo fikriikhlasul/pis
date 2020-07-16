@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login V10</title>
+
+	<title>Masuk - Predatech Information System</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="<?= base_url('asset_authen/assets/'); ?>images/icons/favicon.ico"/>
+<link rel="icon" type="image/png" sizes="192x192" href="http://localhost/pis-client/landing/assets/images/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost/pis-client/landing/assets/images/favicon.ico">
+<link rel="icon" type="image/png" sizes="96x96" href="http://localhost/pis-client/landing/assets/images/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost/pis-client/landing/assets/images/favicon.ico">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="<?= base_url('asset_authen/assets/'); ?>vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->

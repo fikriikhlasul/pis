@@ -29,7 +29,10 @@
   
 
   <!-- FAVICON -->
-  <link href="<?= base_url('sleek/')?>assets/img/favicon.png" rel="shortcut icon" />
+<link rel="icon" type="image/png" sizes="192x192" href="http://localhost/pis-client/landing/assets/images/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost/pis-client/landing/assets/images/favicon.ico">
+<link rel="icon" type="image/png" sizes="96x96" href="http://localhost/pis-client/landing/assets/images/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost/pis-client/landing/assets/images/favicon.ico">
 
   <!--
     HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
