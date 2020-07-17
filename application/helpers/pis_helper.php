@@ -12,7 +12,7 @@ function is_logged_in()
         $querySlug = $ci->db->get_where('user_slug', ['slug' => $slug])->row_array();
         $slug_id = $querySlug['id'];
 
-        $userAccess = $ci->db->get_where('user_access_menu', [
+        $userAccess = $ci->db->get_where('user_access_role', [
             'role_id' => $role_id,
             'slug_id' => $slug_id
         ]);
@@ -30,7 +30,7 @@ function check_access($role_id, $menu_id)
 
     $ci->db->where('role_id', $role_id);
     $ci->db->where('menu_id', $menu_id);
-    $result = $ci->db->get('user_access_menu');
+    $result = $ci->db->get('user_access_role');
 
     if ($result->num_rows() > 0) {
         return "checked='checked'";
