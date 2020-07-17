@@ -136,7 +136,7 @@ https://templatemo.com/tm-538-digital-trend
                          <div class="owl-carousel owl-theme" id="project-slide">
                               <div class="item project-wrapper" data-aos="fade-up" >
                               <iframe  src="https://www.youtube.com/embed/P1pCIHWWmIQ" width="650" height="360" frameborder="0"></iframe>
-                                   <div class="project-info">
+                                   <!-- <div class="project-info">
                                         <small>Marketing</small>
 
                                         <h3>
@@ -145,13 +145,13 @@ https://templatemo.com/tm-538-digital-trend
                                                   <i class="fa fa-angle-right project-icon"></i>
                                              </a>
                                         </h3>
-                                   </div>
+                                   </div> -->
                               </div>
 
                               <div class="item project-wrapper" data-aos="fade-up">
                               <iframe  src="https://www.youtube.com/embed/_OfOFwfIsU4" width="650" height="360" frameborder="0"></iframe>
 
-                                   <div class="project-info">
+                                   <!-- <div class="project-info">
                                         <small>Website</small>
 
                                         <h3>
@@ -160,13 +160,13 @@ https://templatemo.com/tm-538-digital-trend
                                                   <i class="fa fa-angle-right project-icon"></i>
                                              </a>
                                         </h3>
-                                   </div>
+                                   </div> -->
                               </div>
 
                               <div class="item project-wrapper" data-aos="fade-up">
                               <iframe  src="https://www.youtube.com/embed/FK3rTzaOEIk" width="650" height="360" frameborder="0"></iframe>
 
-                                   <div class="project-info">
+                                   <!-- <div class="project-info">
                                         <small>Branding</small>
 
                                         <h3>
@@ -175,13 +175,13 @@ https://templatemo.com/tm-538-digital-trend
                                                   <i class="fa fa-angle-right project-icon"></i>
                                              </a>
                                         </h3>
-                                   </div>
+                                   </div> -->
                               </div>
 
                               <div class="item project-wrapper" data-aos="fade-up">
                               <iframe  src="https://www.youtube.com/embed/gwJUgQGmdFs" width="650" height="360" frameborder="0"></iframe>
 
-                                   <div class="project-info">
+                                   <!-- <div class="project-info">
                                         <small>Social Media</small>
 
                                         <h3>
@@ -190,13 +190,13 @@ https://templatemo.com/tm-538-digital-trend
                                                   <i class="fa fa-angle-right project-icon"></i>
                                              </a>
                                         </h3>
-                                   </div>
+                                   </div> -->
                               </div>
 
                               <div class="item project-wrapper" data-aos="fade-up">
                               <iframe  src="https://www.youtube.com/embed/thwhdrXONLc" width="650" height="360" frameborder="0"></iframe>
 
-                                   <div class="project-info">
+                                   <!-- <div class="project-info">
                                         <small>Video</small>
 
                                         <h3>
@@ -204,7 +204,7 @@ https://templatemo.com/tm-538-digital-trend
                                                   <span>Ultimate HealthCare</span>
                                                   <i class="fa fa-angle-right project-icon"></i>
                                              </a>
-                                        </h3>
+                                        </h3> -->
                                    </div>
                               </div>
                          </div>
