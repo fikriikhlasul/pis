@@ -9165,8 +9165,7 @@ div.copied {
       transition: none; } }
 
 /* Sidebar Minified Out */
-.sidebar-minified-out {
-  /* Sidebar Fixed With Sidebar Minified Out */ }
+
   .sidebar-minified-out .left-sidebar {
     z-index: 10000;
     transform: translateX(-250px);
