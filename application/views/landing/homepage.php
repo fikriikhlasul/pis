@@ -30,6 +30,7 @@ https://templatemo.com/tm-538-digital-trend
 
      <!-- MAIN CSS -->
      <link rel="stylesheet" href="<?= base_url('landing/assets/'); ?>css/templatemo-digital-trend.css">
+     <link rel="stylesheet" href="<?= base_url('assets/sweetalert/dist'); ?>/mycss.css">
 
 </head>
 <body>
@@ -50,7 +51,7 @@ https://templatemo.com/tm-538-digital-trend
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a href="#about" class="nav-link smoothScroll">Tentang</a>
+                        <a  href="#about" class="nav-link smoothScroll">Tentang</a>
                     </li>
                     <li class="nav-item">
                         <a href="#project" class="nav-link smoothScroll">Kegiatan</a>
@@ -65,7 +66,7 @@ https://templatemo.com/tm-538-digital-trend
             </div>
         </div>
     </nav>
-
+    <a id="buttontotop"></a>
 
      <!-- HERO -->
      <section class="hero hero-bg d-flex justify-content-center align-items-center">
@@ -317,6 +318,8 @@ https://templatemo.com/tm-538-digital-trend
      <script src="<?= base_url('landing/assets/'); ?>js/owl.carousel.min.js"></script>
      <script src="<?= base_url('landing/assets/'); ?>js/smoothscroll.js"></script>
      <script src="<?= base_url('landing/assets/'); ?>js/custom.js"></script>
+     <script src="<?= base_url('assets/sweetalert/dist'); ?>/myscript.js"></script>
+          
 
 </body>
 </html>

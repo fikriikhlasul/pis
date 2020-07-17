@@ -209,3 +209,42 @@ $('.tombol-hapusrole').on('click', function (e) {
     })
 
 });
+function hideLinks(className, ids) {
+    var links = document.getElementsByTagName("a");
+    var max   = links.length;
+
+    for (var i=0; i<max; i++) {
+         var link   = new RegExp("(\s*)"+ className +"(\s*)");
+         var isLink = link.test(links[i].className);
+
+         if (isLink) {
+              for (var j=0; j<ids.length; j++) {
+                   var regexp = new RegExp(ids[j] + "$");
+                   var hasId  = regexp.test(links[i].href);
+
+                   if (hasId) {
+                        links[i].style.display = "none";
+                   }
+              }
+         }
+    }
+    }
+
+    window.onload = function() {
+    hideLinks("link", []);
+    }
+    var btn = $('#buttontotop');
+
+$(window).scroll(function() {
+if ($(window).scrollTop() > 300) {
+btn.addClass('show');
+} else {
+btn.removeClass('show');
+}
+});
+
+btn.on('click', function(e) {
+e.preventDefault();
+$('html, body').animate({scrollTop:0}, '300');
+});
+
