@@ -8890,7 +8890,9 @@ div.copied {
       .app-brand a {
         overflow: hidden; } }
     .app-brand a img {
-      max-width: 80px;
+      max-width: 140px;
+      max-height:70px;
+      width:300px;
       vertical-align: middle; }
   .app-brand .brand-name {
     color: #ffffff;
