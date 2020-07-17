@@ -32,7 +32,7 @@
 <!--===============================================================================================-->
 </head>
 <body>
-	
+
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-50 p-b-90">
@@ -93,6 +93,16 @@
 	<script src="<?= base_url('asset_authen/assets/'); ?>vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="<?= base_url('asset_authen/assets/'); ?>js/main.js"></script>
+	<script src="<?= base_url();?>assets/sweetalert/dist/sweetalert2.all.min.js"></script>
+	<?php
+	if (isset($_SESSION['message']))
+	{
+		echo '<script>';
+		echo $_SESSION['message'];
+		echo '</script>';
+		unset($_SESSION['message']);
+	}
+	?>
 
 </body>
 </html>

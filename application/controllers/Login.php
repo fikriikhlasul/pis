@@ -49,15 +49,33 @@ class Login extends CI_Controller
                         redirect('user/dashboard');
                     }
                 } else {
-                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Wrong password!</div>');
+                    $_SESSION['message'] = "
+                        Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Sepertinya passwordnya salah,coba lagi!'
+                      })";
+                    // $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Wrong password!</div>');
                     redirect('login');
                 }
             } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">This email has not been activated!</div>');
+                $_SESSION['message'] = "
+                        Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Sepertinya akun anda belum aktif,silahkan hubungu admin!'
+                      })";
+                // $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">This email has not been activated!</div>');
                 redirect('login');
             }
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email is not registered!</div>');
+            $_SESSION['message'] = "
+                        Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Email belum terdaftar di akun manapun, silahkan cek kembali!'
+                      })";
+                // $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email is not registered!</div>');
             redirect('login');
         }
     }

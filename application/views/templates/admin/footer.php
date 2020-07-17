@@ -40,7 +40,17 @@
 <script src="<?= base_url('sleek/')?>assets/js/date-range.js"></script>
 <script src="<?= base_url('sleek/')?>assets/js/map.js"></script>
 <script src="<?= base_url('sleek/')?>assets/js/custom.js"></script>
-
+<script src="<?= base_url();?>assets/sweetalert/dist/sweetalert2.all.min.js"></script>
+<script src="<?= base_url();?>assets/sweetalert/dist/myscript.js"></script>
+<?php
+	if (isset($_SESSION['message']))
+	{
+		echo '<script>';
+		echo $_SESSION['message'];
+		echo '</script>';
+		unset($_SESSION['message']);
+	}
+	?>
 
 
 

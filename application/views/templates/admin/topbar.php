@@ -55,7 +55,7 @@
                       </li> -->
 
                       <li class="dropdown-footer">
-                        <a href="<?= base_url();?>logout"> <i class="mdi mdi-logout"></i> Log Out </a>
+                        <a href="<?= base_url();?>logout" class="tombol-logout"> <i class="mdi mdi-logout"></i> Log Out </a>
                       </li>
                     </ul>
                   </li>
