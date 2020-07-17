@@ -5,7 +5,10 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="<?= base_url('asset_authen/assets/'); ?>images/icons/favicon.ico"/>
+<link rel="icon" type="image/png" sizes="192x192" href="http://localhost/pis-client/landing/assets/images/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost/pis-client/landing/assets/images/favicon.ico">
+<link rel="icon" type="image/png" sizes="96x96" href="http://localhost/pis-client/landing/assets/images/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost/pis-client/landing/assets/images/favicon.ico">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="<?= base_url('asset_authen/assets/'); ?>vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -39,7 +42,7 @@
 					</span>
 
 					<div class="wrap-input100 validate-input m-b-16" data-validate = "Name is required">
-						<input class="input100" type="text" name="name" placeholder="Nama Lengkap">
+						<input class="input100" type="text" name="name" placeholder="Nama Lengkap" autofocus>
 						<span class="focus-input100"></span>
 						<?= form_error('name', '<small class="text-danger pl-3">', '</small>'); ?>
 					</div>
@@ -99,6 +102,16 @@
 	<script src="<?= base_url('asset_authen/assets/'); ?>vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="<?= base_url('asset_authen/assets/'); ?>js/main.js"></script>
+	<script src="<?= base_url();?>assets/sweetalert/dist/sweetalert2.all.min.js"></script>
+	<?php
+	if (isset($_SESSION['message']))
+	{
+		echo '<script>';
+		echo $_SESSION['message'];
+		echo '</script>';
+		unset($_SESSION['message']);
+	}
+	?>
 
 </body>
 </html>

@@ -49,8 +49,14 @@ class Register extends CI_controller
             //    $this->db->insert('user_token', $user_token);
     
             //    $this->_sendEmail($token, 'verify');
-    
-               $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Selamat! akun anda berhasil di buat. silahkan login</div>');
+
+            $_SESSION['message'] = "
+            Swal.fire({
+            icon: 'success',
+            title: 'Selamat!',
+            text: 'Akun anda berhasil dibuat!'
+            })";
+            //    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Selamat! akun anda berhasil di buat. silahkan login</div>');
                redirect('login');
            }
        }

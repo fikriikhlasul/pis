@@ -44,15 +44,15 @@
 
 					
 					<div class="wrap-input100 validate-input m-b-16" data-validate = "Email is required">
-						<input class="input100" type="text" name="email" placeholder="Email">
-						<?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
+						<input class="input100" type="text" name="email" placeholder="Email" autofocus>
+						
 						<span class="focus-input100"></span>
 					</div>
 					
 					
 					<div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
 						<input class="input100" type="password" name="password" placeholder="Password">
-						<?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
+						
 						<span class="focus-input100"></span>
 					</div>
 					
