@@ -39,7 +39,7 @@ body {
 
 .notfound .notfound-404 h1 {
   font-family: 'Passion One', cursive;
-  color: #00b5c3;
+  color: #20bf6b;
   font-size: 150px;
   letter-spacing: 15.5px;
   margin: 0px;
@@ -90,7 +90,7 @@ body {
 
 .notfound a:hover {
   color: #fff;
-  background-color: #00b5c3;
+  background-color: #20bf6b;
 }
 
 @media only screen and (max-width: 480px) {
