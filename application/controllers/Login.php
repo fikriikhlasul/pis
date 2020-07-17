@@ -10,11 +10,19 @@ class Login extends CI_Controller
     }
     public function index()
     {
-       
-        if ($this->session->userdata('email')) {
-            redirect('user');
+       $role_id = $this->session->userdata('role_id');
+        if ($role_id > 1 ) {
+            $url = 'user';
+        
+            redirect($url.'/dashboard');
+        }elseif($role_id == 1 )
+        {   $url = 'admin';
+            redirect($url.'/dashboard');
+        }else
+        {
+        $this->session->unset_userdata('email');
+        $this->session->unset_userdata('role_id');
         }
-
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
         $this->form_validation->set_rules('password', 'Password', 'trim|required');
 
