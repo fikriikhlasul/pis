@@ -12,13 +12,16 @@
   <link href="https://cdn.materialdesignicons.com/3.0.39/css/materialdesignicons.min.css" rel="stylesheet" />
 
   <!-- PLUGINS CSS STYLE -->
-  <link href="<?= base_url('sleek/')?>assets/plugins/toaster/toastr.min.css" rel="stylesheet" />
   <link href="<?= base_url('sleek/')?>assets/plugins/nprogress/nprogress.css" rel="stylesheet" />
-  <link href="<?= base_url('sleek/')?>assets/plugins/flag-icons/css/flag-icon.min.css" rel="stylesheet"/>
-  <link href="<?= base_url('sleek/')?>assets/plugins/jvectormap/jquery-jvectormap-2.0.3.css" rel="stylesheet" />
-  <link href="<?= base_url('sleek/')?>assets/plugins/ladda/ladda.min.css" rel="stylesheet" />
-  <link href="<?= base_url('sleek/')?>assets/plugins/select2/css/select2.min.css" rel="stylesheet" />
-  <link href="<?= base_url('sleek/')?>assets/plugins/daterangepicker/daterangepicker.css" rel="stylesheet" />
+  <link href="<?//= base_url('sleek/')?>assets/plugins/toaster/toastr.min.css" rel="stylesheet" />
+  <link href="<?//= base_url('sleek/')?>assets/plugins/flag-icons/css/flag-icon.min.css" rel="stylesheet"/>
+  <link href="<?//= base_url('sleek/')?>assets/plugins/jvectormap/jquery-jvectormap-2.0.3.css" rel="stylesheet" />
+  <link href="<?//= base_url('sleek/')?>assets/plugins/ladda/ladda.min.css" rel="stylesheet" />
+  <link href="<?//= base_url('sleek/')?>assets/plugins/select2/css/select2.min.css" rel="stylesheet" />
+  <link href="<?//= base_url('sleek/')?>assets/plugins/daterangepicker/daterangepicker.css" rel="stylesheet" />
+  <!-- link css linkedin-->
+  <!-- <link rel="stylesheet" href="<?= base_url('sleek/')?>assets/css/linkedin.css"> -->
+
 
   <!-- SLEEK CSS -->
   <link id="sleek-css" rel="stylesheet" href="<?= base_url('sleek/')?>assets/css/sleek.css" />
@@ -30,7 +33,6 @@
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost/pis-client/landing/assets/images/favicon.ico">
 <link rel="icon" type="image/png" sizes="96x96" href="http://localhost/pis-client/landing/assets/images/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost/pis-client/landing/assets/images/favicon.ico">
-
 
   <!--
     HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
