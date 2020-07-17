@@ -13,12 +13,12 @@
 
   <!-- PLUGINS CSS STYLE -->
   <link href="<?= base_url('sleek/')?>assets/plugins/nprogress/nprogress.css" rel="stylesheet" />
-  <link href="<?//= base_url('sleek/')?>assets/plugins/toaster/toastr.min.css" rel="stylesheet" />
-  <link href="<?//= base_url('sleek/')?>assets/plugins/flag-icons/css/flag-icon.min.css" rel="stylesheet"/>
-  <link href="<?//= base_url('sleek/')?>assets/plugins/jvectormap/jquery-jvectormap-2.0.3.css" rel="stylesheet" />
-  <link href="<?//= base_url('sleek/')?>assets/plugins/ladda/ladda.min.css" rel="stylesheet" />
-  <link href="<?//= base_url('sleek/')?>assets/plugins/select2/css/select2.min.css" rel="stylesheet" />
-  <link href="<?//= base_url('sleek/')?>assets/plugins/daterangepicker/daterangepicker.css" rel="stylesheet" />
+  <link href="<?= base_url('sleek/')?>assets/plugins/toaster/toastr.min.css" rel="stylesheet" />
+  <link href="<?= base_url('sleek/')?>assets/plugins/flag-icons/css/flag-icon.min.css" rel="stylesheet"/>
+  <link href="<?= base_url('sleek/')?>assets/plugins/jvectormap/jquery-jvectormap-2.0.3.css" rel="stylesheet" />
+  <link href="<?= base_url('sleek/')?>assets/plugins/ladda/ladda.min.css" rel="stylesheet" />
+  <link href="<?= base_url('sleek/')?>assets/plugins/select2/css/select2.min.css" rel="stylesheet" />
+  <link href="<?= base_url('sleek/')?>assets/plugins/daterangepicker/daterangepicker.css" rel="stylesheet" />
   <!-- link css linkedin-->
   <!-- <link rel="stylesheet" href="<?= base_url('sleek/')?>assets/css/linkedin.css"> -->
 
