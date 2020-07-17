@@ -53,6 +53,8 @@ $route['default_controller'] = 'landing';
 $route['404_override'] = 'my404';
 $route['translate_uri_dashes'] = FALSE;
 $route['blog'] = 'landing/blog';
+$route['admin'] = 'admin/dashboard';
+$route['user'] = 'user/dashboard';
 
 
 
