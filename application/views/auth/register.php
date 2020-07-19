@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login V10</title>
+	<title>Daftar - PATRIOT</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-<link rel="icon" type="image/png" sizes="192x192" href="http://localhost/pis-client/landing/assets/images/favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost/pis-client/landing/assets/images/favicon.ico">
-<link rel="icon" type="image/png" sizes="96x96" href="http://localhost/pis-client/landing/assets/images/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost/pis-client/landing/assets/images/favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="http://localhost/pis-client/landing/assets/images/favicon-patriot-16x16.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost/pis-client/landing/assets/images/favicon-patriot-16x16.ico">
+<link rel="icon" type="image/png" sizes="96x96" href="http://localhost/pis-client/landing/assets/images/favicon-patriot-16x16.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost/pis-client/landing/assets/images/favicon-patriot-16x16.ico">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="<?= base_url('asset_authen/assets/'); ?>vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -45,6 +45,12 @@
 						<input class="input100" type="text" name="name" placeholder="Nama Lengkap" autofocus>
 						<span class="focus-input100"></span>
 						<?= form_error('name', '<small class="text-danger pl-3">', '</small>'); ?>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Username is required">
+						<input class="input100" type="text" name="username" placeholder="Username">
+						<span class="focus-input100"></span>
+						<?= form_error('username', '<small class="text-danger pl-3">', '</small>'); ?>
 					</div>
 
 					<div class="wrap-input100 validate-input m-b-16" data-validate = "Email is required">

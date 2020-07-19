@@ -14,6 +14,13 @@ class Register extends CI_controller
            }
     
            $this->form_validation->set_rules('name', 'Name', 'required|trim');
+           $this->form_validation->set_rules('username', 'Username', 'alpha_numeric|min_length[5]|max_length[12]|required|trim|is_unique[user.username]', [
+            'is_unique' => 'Username ini sudah terdaftar!',
+            'min_length' => 'Username terlalu pendek',
+            'max_length' => 'Maksimal 12 karakter!',
+            'alpha_numeric' => 'Username hanya huruf dan angka!',
+            
+        ]);
            $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]', [
                'is_unique' => 'email ini sudah terdaftar!'
            ]);
@@ -26,9 +33,13 @@ class Register extends CI_controller
            if ($this->form_validation->run() == false) {
                $this->load->view('auth/register');
            } else {
+               $username = $this->input->post('username', true);
+               $user_slug = slug($username);
                $email = $this->input->post('email', true);
                $data = [
                    'name' => htmlspecialchars($this->input->post('name', true)),
+                   'username' => htmlspecialchars($username),
+                   'user_slug' => htmlspecialchars($user_slug),
                    'email' => htmlspecialchars($email),
                    'image' => 'default.jpg',
                    'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),

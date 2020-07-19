@@ -8,7 +8,7 @@
             <!-- Aplication Brand -->
             <div class="app-brand">
               <a href="<?= base_url('admin/dashboard');?>">
-              <img itemprop="logo" src="<?= base_url('assets/img/logo');?>/pis_logo.png" alt="Predatech Information System">
+              <img itemprop="logo" src="<?= base_url('assets/img/logo');?>/patriot_logo.png" title="Predatech Data Center Information">
                 <span class="brand-name"></span>
               </a>
             </div>
@@ -21,7 +21,7 @@
 
                 
                   <li  class="has-sub active expand" >
-                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#dashboard"
+                    <a class="sidenav-item-link"  data-toggle="collapse" data-target="#dashboard"
                       aria-expanded="false" aria-controls="dashboard">
                       <i class="mdi mdi-view-dashboard-outline"></i>
                       <span class="nav-text">Dashboard</span> <b class="caret"></b>

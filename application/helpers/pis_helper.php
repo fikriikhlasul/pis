@@ -3,18 +3,18 @@
 function is_logged_in()
 {
     $ci = get_instance();
-    if (!$ci->session->userdata('email')) {
+    if (!$ci->session->userdata('username')) {
         redirect('login');
     } else {
         $role_id = $ci->session->userdata('role_id');
-        $slug = $ci->uri->segment(1);
+        $level = $ci->uri->segment(1);
 
-        $querySlug = $ci->db->get_where('user_slug', ['slug' => $slug])->row_array();
-        $slug_id = $querySlug['id'];
+        $queryLevel = $ci->db->get_where('user_level', ['level' => $level])->row_array();
+        $level_id = $queryLevel['id'];
 
-        $userAccess = $ci->db->get_where('user_access_role', [
+        $userAccess = $ci->db->get_where('user_access_level', [
             'role_id' => $role_id,
-            'slug_id' => $slug_id
+            'level_id' => $level_id
         ]);
 
         if ($userAccess->num_rows() < 1) {
@@ -24,15 +24,33 @@ function is_logged_in()
 }
 
 
-function check_access($role_id, $menu_id)
+// function check_access($role_id, $menu_id)
+// {
+//     $ci = get_instance();
+
+//     $ci->db->where('role_id', $role_id);
+//     $ci->db->where('menu_id', $menu_id);
+//     $result = $ci->db->get('user_access_menu');
+
+//     if ($result->num_rows() > 0) {
+//         return "checked='checked'";
+//     }
+// }
+function slug($text)
 {
-    $ci = get_instance();
-
-    $ci->db->where('role_id', $role_id);
-    $ci->db->where('menu_id', $menu_id);
-    $result = $ci->db->get('user_access_role');
-
-    if ($result->num_rows() > 0) {
-        return "checked='checked'";
+    // replace non letter or digits by -
+    $text = preg_replace('~[^\\pL\d]+~u', '-', $text);
+    // trim
+    $text = trim($text, '-');
+    // transliterate
+    $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+    // lowercase
+    $text = strtolower($text);
+    // remove unwanted characters
+    $text = preg_replace('~[^-\w]+~', '', $text);
+    if (empty($text))
+    {
+        return 'n-a';
     }
+    return $text;
 }

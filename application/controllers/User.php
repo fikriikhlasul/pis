@@ -11,8 +11,8 @@ class User extends CI_Controller
 
     public function dashboard()
     {
-        $data['title'] = 'My Profile';
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['title'] = 'Dashboard - PATRIOT';
+        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 
         $this->load->view('templates/user/header', $data);
         $this->load->view('templates/user/sidebar', $data);

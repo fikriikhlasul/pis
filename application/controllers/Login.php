@@ -20,10 +20,10 @@ class Login extends CI_Controller
             redirect($url.'/dashboard');
         }else
         {
-        $this->session->unset_userdata('email');
+        $this->session->unset_userdata('username');
         $this->session->unset_userdata('role_id');
         }
-        $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+        $this->form_validation->set_rules('username', 'Username', 'trim|required');
         $this->form_validation->set_rules('password', 'Password', 'trim|required');
 
         if ($this->form_validation->run() == false) {
@@ -35,10 +35,10 @@ class Login extends CI_Controller
     }
     private function _login()
     {
-        $email = $this->input->post('email');
+        $username = $this->input->post('username');
         $password = $this->input->post('password');
 
-        $user = $this->db->get_where('user', ['email' => $email])->row_array();
+        $user = $this->db->get_where('user', ['username' => $username])->row_array();
 
         // jika usernya ada
         if ($user) {
@@ -47,7 +47,7 @@ class Login extends CI_Controller
                 // cek password
                 if (password_verify($password, $user['password'])) {
                     $data = [
-                        'email' => $user['email'],
+                        'username' => $user['username'],
                         'role_id' => $user['role_id']
                     ];
                     $this->session->set_userdata($data);
