@@ -172,7 +172,7 @@ public function removepicture()
             title: 'Selamat!',
             text: 'Berhasil menghapus foto'
         })";
-        redirect('admin/profile');
+        redirect('user/profile');
 }
 
 }
