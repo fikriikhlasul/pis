@@ -36,47 +36,21 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-50 p-b-90">
-				<form class="login100-form validate-form flex-sb flex-w" method="post" action="<?=base_url('login')?>">
-				<?= $this->session->flashdata('message'); ?>
+				
 					<span class="login100-form-title p-b-51">
-						Masuk
+						Silahkan klik tombol dibawah untuk reset password
 					</span>
-
-					
-					<div class="wrap-input100 validate-input m-b-16" data-validate = "Username is required">
-						<input class="input100" type="text" name="username" placeholder="Username" autofocus>
-						
-						<span class="focus-input100"></span>
-					</div>
-					
-					
-					<div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
-						<input class="input100" type="password" name="password" placeholder="Password">
-						
-						<span class="focus-input100"></span>
-					</div>
-					
 					
 
 					<div class="container-login100-form-btn m-t-17">
-						<button class="login100-form-btn">
-							Masuk
-						</button>
-                    </div>
-					<div class="container" style="text-align:center">
-					<h8> Lupa password?<a href="forgot-password"class="txt1"> Reset</a></h8><br/>
-                   <h8> Dafar keanggotaan<a href="register"class="txt1"> Daftar</a></h8><br/>
-					<a href="/pis-client"class="txt1"> Home</a>
-                    </div>
-					
-
-				</form>
+					<a class="login100-form-btn" href="<?php  echo base_url();echo $reset;echo $user_email;echo '&token=';echo urlencode($token) ?>"><?=$respas;?></a>
+					</div>
+		 
 			</div>
 		</div>
 	</div>
 	
 
-	<div id="dropDownSelect1"></div>
 	
 <!--===============================================================================================-->
 	<script src="<?= base_url('asset_authen/assets/'); ?>vendor/jquery/jquery-3.2.1.min.js"></script>

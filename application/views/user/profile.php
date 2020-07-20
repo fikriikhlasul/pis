@@ -8,7 +8,7 @@
 												<div class="card-img mx-auto rounded-circle">
 													<img style='height:100px;width:100px' src="<?= base_url('assets/img/profile/') . $user['image']; ?>" alt="user image">
                                                 </div>
-                                               <button type="button" class="btn-sm" data-toggle="modal" data-target="#exampleModalTooltip">
+                                               <button type="button" title="Ganti foto" class="btn-sm" data-toggle="modal" data-target="#exampleModalTooltip">
 											Change Picture
                                         </button>
                                         <form method="post" action="removepicture">

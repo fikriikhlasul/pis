@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-	<title>Masuk - PATRIOT</title>
+	<title>Reset Password - PATRIOT</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -36,41 +36,41 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-50 p-b-90">
-				<form class="login100-form validate-form flex-sb flex-w" method="post" action="<?=base_url('login')?>">
-				<?= $this->session->flashdata('message'); ?>
+				<form class="login100-form validate-form flex-sb flex-w" method="post" action="<?=base_url('change-password')?>">
+				
 					<span class="login100-form-title p-b-51">
-						Masuk
+                        Ganti Password untuk email
+                        <h6 class="mb-4"><?= $this->session->userdata('reset_email'); ?></h6>
 					</span>
 
 					
-					<div class="wrap-input100 validate-input m-b-16" data-validate = "Username is required">
-						<input class="input100" type="text" name="username" placeholder="Username" autofocus>
-						
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required" >
+						<input class="input100" type="password" name="password1" placeholder="Masukkan password baru" autofocus >
 						<span class="focus-input100"></span>
-					</div>
-					
-					
-					<div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
-						<input class="input100" type="password" name="password" placeholder="Password">
-						
+                    </div>
+                    <?= form_error('password1', '<small class="text-danger pl-3">', '</small>'); ?>
+                    <div class="wrap-input100 validate-input m-b-16" data-validate = "Confirm Password is required">
+						<input class="input100" type="password" name="password2" placeholder="Konfirmasi password baru" >
 						<span class="focus-input100"></span>
-					</div>
+                    </div>
+                    <?= form_error('password2', '<small class="text-danger pl-3">', '</small>'); ?>
+					
 					
 					
 
 					<div class="container-login100-form-btn m-t-17">
 						<button class="login100-form-btn">
-							Masuk
+							Reset
 						</button>
                     </div>
-					<div class="container" style="text-align:center">
-					<h8> Lupa password?<a href="forgot-password"class="txt1"> Reset</a></h8><br/>
-                   <h8> Dafar keanggotaan<a href="register"class="txt1"> Daftar</a></h8><br/>
-					<a href="/pis-client"class="txt1"> Home</a>
+                    <div class="container" style="text-align:center">
+                    <br/>
+					<a href="/pis-client/login"class="txt1"> Masuk</a>
                     </div>
 					
 
-				</form>
+                </form>
+                
 			</div>
 		</div>
 	</div>

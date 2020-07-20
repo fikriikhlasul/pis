@@ -55,6 +55,8 @@ $route['translate_uri_dashes'] = FALSE;
 $route['blog'] = 'landing/blog';
 $route['admin'] = 'admin/dashboard';
 $route['user'] = 'user/dashboard';
+$route['forgot-password'] = 'auth/forgotpassword';
+$route['change-password'] = 'auth/changepassword';
 
 
 
