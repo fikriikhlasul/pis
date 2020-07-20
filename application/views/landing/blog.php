@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-     <title>Digital Trend - Blog</title>
+     <title>Selamat datang di Predatech Data Center Information - PATRIOT</title>
 <!--
 
 DIGITAL TREND
@@ -23,18 +23,24 @@ https://templatemo.com/tm-538-digital-trend
      <link rel="stylesheet" href="<?= base_url('landing/assets/'); ?>css/owl.carousel.min.css">
      <link rel="stylesheet" href="<?= base_url('landing/assets/'); ?>css/owl.theme.default.min.css">
 
+<link rel="icon" type="image/png" sizes="192x192" href="<?= base_url('landing/assets/images/');?>/favicon-patriot-16x16.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="<?= base_url('landing/assets/images/');?>/favicon-patriot-16x16.ico">
+<link rel="icon" type="image/png" sizes="96x96" href="<?= base_url('landing/assets/images/');?>/favicon-patriot-16x16.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('landing/assets/images/');?>/favicon-patriot-16x16.ico">
+
      <!-- MAIN CSS -->
      <link rel="stylesheet" href="<?= base_url('landing/assets/'); ?>css/templatemo-digital-trend.css">
+     <link rel="stylesheet" href="<?= base_url('assets/sweetalert/dist'); ?>/mycss.css">
 
 </head>
 <body>
 
      <!-- MENU BAR -->
-    <nav class="navbar navbar-expand-lg position-absolute">
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
-        <a class="navbar-brand" href="<?= base_url();?>">
+            <a class="navbar-brand" href="<?= base_url();?>">
               <!-- <i class="fa fa-line-chart"></i> -->
-              <img style='height:80px' itemprop="logo" src="<?= base_url('assets/img/logo');?>/pis_logo.png" alt="Predatech Information System">
+              <img itemprop="logo" style="height:400;width:180px" src="<?= base_url('assets/img/logo');?>/patriot_logo.png" alt="Predatech Data Center Information">
             </a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"

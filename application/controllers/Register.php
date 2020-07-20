@@ -24,23 +24,38 @@ class Register extends CI_controller
            $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]', [
                'is_unique' => 'email ini sudah terdaftar!'
            ]);
+           $this->form_validation->set_rules('nim', 'Nim', 'numeric|required|trim|is_unique[user.nim]', [
+            'is_unique' => 'nim ini sudah terdaftar!'
+        ]);
+        $this->form_validation->set_rules('no_hp', 'Nomor Handphone', 'numeric|required|trim|is_unique[user.no_hp]', [
+            'is_unique' => 'Nomor ini sudah terdaftar!',
+            'numeric' => 'Nomor handphone hanya angka!'
+        ]);
            $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[8]|matches[password2]', [
                'matches' => 'Password tidak cocok!',
                'min_length' => 'Password terlalu pendek!'
            ]);
            $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
+           
     
            if ($this->form_validation->run() == false) {
                $this->load->view('auth/register');
            } else {
                $username = $this->input->post('username', true);
-               $user_slug = slug($username);
                $email = $this->input->post('email', true);
+               $nim = $this->input->post('nim', true);
+               $jurusan = $this->input->post('jurusan', true);
+               $no_hp = $this->input->post('no_hp', true);
+               $tanggal_lahir = $this->input->post('tanggal_lahir', true);
                $data = [
                    'name' => htmlspecialchars($this->input->post('name', true)),
+                   'tanggal_lahir' => htmlspecialchars($tanggal_lahir),
                    'username' => htmlspecialchars($username),
-                   'user_slug' => htmlspecialchars($user_slug),
                    'email' => htmlspecialchars($email),
+                   'nim' => htmlspecialchars($nim),
+                   'jurusan' => htmlspecialchars($jurusan),
+                   'status' => 'Anggota Aktif',
+                   'no_hp' => htmlspecialchars($no_hp),
                    'image' => 'default.jpg',
                    'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
                    'role_id' => 2,

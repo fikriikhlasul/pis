@@ -8,7 +8,7 @@
             <!-- Aplication Brand -->
             <div class="app-brand">
               <a href="<?= base_url('admin/dashboard');?>">
-              <img itemprop="logo" src="<?= base_url('assets/img/logo');?>/patriot_logo.png" title="Predatech Data Center Information">
+              <img itemprop="logo" src="http://localhost/pis-client/assets/img/logo/patriot_logo.png" title="Predatech Data Center Information" class="ml-4">
                 <span class="brand-name"></span>
               </a>
             </div>
@@ -18,23 +18,25 @@
               <!-- sidebar menu -->
               <ul class="nav sidebar-inner" id="sidebar-menu">
                 
-
-                
-                  <li  class="has-sub active expand" >
-                    <a class="sidenav-item-link"  data-toggle="collapse" data-target="#dashboard"
-                      aria-expanded="false" aria-controls="dashboard">
-                      <i class="mdi mdi-view-dashboard-outline"></i>
-                      <span class="nav-text">Dashboard</span> <b class="caret"></b>
+              <li  class="has-sub <?php if($title == "Dashboard") echo "active";?> " >
+                    <a class="sidenav-item-link" href='dashboard'  >
+                      <i class="mdi mdi-view-dashboard outline"></i>
+                      <span class="nav-text">Dashboard</span>
                     </a>
-                    <ul  class="collapse show"  id="dashboard"
+                  </li>
+                
+                  <li  class="has-sub <?php if($title == "My Profile") echo "active";?> " >
+                    <a class="sidenav-item-link"  data-toggle="collapse" data-target="#account"
+                      aria-expanded="false" aria-controls="account">
+                      <i class="mdi mdi-account-settings outline"></i>
+                      <span class="nav-text">Account</span> <b class="caret"></b>
+                    </a>
+                    <ul  class="collapse <?php if($title == "My Profile") echo "show";?>"  id="account"
                       data-parent="#sidebar-menu">
                       <div class="sub-menu">
-                        
-                        
-                          
-                            <li  class="active" >
+                            <li <?php if($title == "My Profile") echo "class='active'";?>>
                               <a class="sidenav-item-link" href="profile">
-                                <span class="nav-text">Profile</span>
+                                <span class="nav-text mdi mdi-account"> Profile</span>
                                 
                               </a>
                             </li>

@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title><?=$title?></title>
+  <title><?=$title?> - PATRIOT</title>
 
   <!-- GOOGLE FONTS -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500" rel="stylesheet"/>
@@ -19,8 +19,7 @@
   <link href="<?= base_url('sleek/')?>assets/plugins/ladda/ladda.min.css" rel="stylesheet" />
   <link href="<?= base_url('sleek/')?>assets/plugins/select2/css/select2.min.css" rel="stylesheet" />
   <link href="<?= base_url('sleek/')?>assets/plugins/daterangepicker/daterangepicker.css" rel="stylesheet" />
-  <!-- link css linkedin-->
-  <!-- <link rel="stylesheet" href="<?= base_url('sleek/')?>assets/css/linkedin.css"> -->
+  
 
 
   <!-- SLEEK CSS -->

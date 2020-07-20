@@ -71,7 +71,7 @@ class Login extends CI_Controller
                         Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
-                        text: 'Sepertinya akun anda belum aktif,silahkan hubungu admin!'
+                        text: 'Sepertinya akun anda belum aktif,silahkan hubungi admin!'
                       })";
                 // $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">This email has not been activated!</div>');
                 redirect('login');
@@ -81,7 +81,7 @@ class Login extends CI_Controller
                         Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
-                        text: 'Email belum terdaftar di akun manapun, silahkan cek kembali!'
+                        text: 'Username belum terdaftar di akun manapun, silahkan cek kembali!'
                       })";
                 // $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email is not registered!</div>');
             redirect('login');

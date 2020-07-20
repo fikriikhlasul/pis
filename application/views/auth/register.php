@@ -36,7 +36,7 @@
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-50 p-b-90">
 			<?= $this->session->flashdata('message'); ?>
-				<form class="login100-form validate-form flex-sb flex-w" method="post" action="<?=base_url('register')?>">
+				<form class="login100-form validate-form flex-sb flex-w" id='isian' method="post" action="<?=base_url('register')?>">
 					<span class="login100-form-title p-b-51">
 						Daftar Keanggotaan
 					</span>
@@ -45,6 +45,10 @@
 						<input class="input100" type="text" name="name" placeholder="Nama Lengkap" autofocus>
 						<span class="focus-input100"></span>
 						<?= form_error('name', '<small class="text-danger pl-3">', '</small>'); ?>
+					</div>
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Tanggal Lahir is required">
+						<input class="input100" type="date" name="tanggal_lahir" placeholder="Tanggal Lahir" autofocus>
+						<span class="focus-input100"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input m-b-16" data-validate = "Username is required">
@@ -57,6 +61,29 @@
 						<input class="input100" type="text" name="email" placeholder="Email">
 						<span class="focus-input100"></span>
 						<?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Nim is required">
+						<input class="input100" type="text" name="nim" placeholder="Nim">
+						<span class="focus-input100"></span>
+						<?= form_error('nim', '<small class="text-danger pl-3">', '</small>'); ?>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Jurusan is required">
+						<select class="input100" name="jurusan" form='isian'>
+						<option value="Sistem Informasi">Sistem Informasi</option>
+						<option value="Teknik Informatika">Teknik Informatika</option>
+						<option value="Matematika">Matematika</option>
+						<option value="Teknik Industri">Teknik Industri</option>
+						<option value="Teknik Elektro">Teknik Elektro</option>
+						</select>
+						<span class="focus-input100"></span>
+					</div>
+					
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Nomor Handphone is required">
+						<input class="input100" type="text" name="no_hp" placeholder="Nomor Handphone">
+						<span class="focus-input100"></span>
+						<?= form_error('no_hp', '<small class="text-danger pl-3">', '</small>'); ?>
 					</div>
 
 					

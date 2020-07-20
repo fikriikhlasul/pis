@@ -8873,7 +8873,7 @@ div.copied {
 .app-brand {
   position: relative;
   display: block;
-  background-color: #4c84ff; }
+  background-color: #be212f; }
   .app-brand a {
     display: flex;
     flex-direction: row;
@@ -8909,7 +8909,7 @@ div.copied {
   font-size: 1.5rem; }
 
 .sidebar .nav > li.active > a i {
-  color: #4c84ff; }
+  color: #be212f; }
 
 /* Caret styles */
 .sidebar li > a .caret {

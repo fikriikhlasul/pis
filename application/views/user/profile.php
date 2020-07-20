@@ -69,7 +69,7 @@
                                                     </div>
                                                     <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 										    <div class="card-body">
-                                            <?= form_open_multipart('admin/profile'); ?>
+                                            <?= form_open_multipart('user/profile'); ?>
                                             <div class="form-row">
 
 													<div class="col-md-6 mb-3">
@@ -178,7 +178,7 @@
 </div>
 </div>
                     <!-- Tooltip Modal -->
-                    <form method='post' action='<?=base_url();?>admin/profile' enctype='multipart/form-data'>
+                    <form method='post' action='<?=base_url();?>user/profile' enctype='multipart/form-data'>
                     <div class="modal fade" id="exampleModalTooltip" tabindex="-1" role="dialog" aria-labelledby="exampleModalTooltip" aria-hidden="true">
 							<div class="modal-dialog modal-dialog-centered" role="document">
                             
