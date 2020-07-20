@@ -157,9 +157,22 @@ class User extends CI_Controller
         redirect('user/profile');
     
 }
-
-
 }
-    }
 }
+}
+public function removepicture()
+{
+    $image = $this->input->post('image');
+    $this->db->set('image',$image);
+    $this->db->where('username', $this->session->userdata('username'));
+    $this->db->update('user');
+    $_SESSION['message'] = "
+            Swal.fire({
+            icon: 'success',
+            title: 'Selamat!',
+            text: 'Berhasil menghapus foto'
+        })";
+        redirect('admin/profile');
+}
+
 }

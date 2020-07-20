@@ -10,7 +10,11 @@
                                                 </div>
                                                <button type="button" class="btn-sm" data-toggle="modal" data-target="#exampleModalTooltip">
 											Change Picture
-										</button>
+                                        </button>
+                                        <form method="post" action="removepicture">
+                                        <input type="hidden" name="image" class="form-control" value="default.jpg">
+                                        <button class="mdi mdi-image-off" title="Hapus foto"></button>
+                                        </form>
                                                 <div class="card-body">
                                                     <h4 class="py-2 text-dark"><?= $user['name']?></h4>
                                                     <!-- <hr class="w-100">
