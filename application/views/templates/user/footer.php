@@ -1,7 +1,7 @@
 <footer class="footer mt-auto">
             <div class="copyright bg-white">
               <p>
-                &copy; <span id="copy-year">2020</span> Copyright Predatech Information System, Template by 
+                &copy; <span id="copy-year">2020</span> Copyright Predatech Data Center Information, Template by 
                 <a
                   class="text-primary"
                   href="#"
@@ -42,6 +42,15 @@
 <script src="<?= base_url('sleek/')?>assets/js/custom.js"></script>
 <script src="<?= base_url();?>assets/sweetalert/dist/sweetalert2.all.min.js"></script>
 <script src="<?= base_url();?>assets/sweetalert/dist/myscript.js"></script>
+<script>
+  function sampul(){
+    const img = document.querySelector('#image');
+    const labelz = document.querySelector('.custom-file-label');
+    labelz.textContent = img.files[0].name;
+
+  }
+</script>
+
 <?php
 	if (isset($_SESSION['message']))
 	{
