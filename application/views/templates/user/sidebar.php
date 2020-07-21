@@ -8,7 +8,7 @@
             <!-- Aplication Brand -->
             <div class="app-brand">
               <a href="<?= base_url('user/dashboard');?>">
-              <img itemprop="logo" src="http://localhost/pis-client/assets/img/logo/patriot_logo.png" title="Predatech Data Center Information" class="ml-4">
+              <img itemprop="logo" src="<?= base_url();?>assets/img/logo/patriot_logo.png" title="Predatech Data Center Information" class="ml-4">
                 <span class="brand-name"></span>
               </a>
             </div>
