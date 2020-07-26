@@ -49,9 +49,6 @@
 										<div class="profile-content-right py-5">
 											<ul class="nav nav-tabs px-3 px-xl-5 nav-style-border" id="myTab" role="tablist">
 												<li class="nav-item">
-													<a class="nav-link " id="recent-tab" data-toggle="tab" href="#recent" role="tab" aria-controls="recent" aria-selected="true">Recent Activities</a>
-												</li>
-												<li class="nav-item">
 													<a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
 												</li>
 												<li class="nav-item">
@@ -59,18 +56,6 @@
 												</li>
                                             </ul>
                                             <div class="tab-content px-3 px-xl-5" id="myTabContent">
-												<div class="tab-pane fade " id="recent" role="tabpanel" aria-labelledby="recent-tab">
-													<div class="media mt-5 profile-recent-media">
-														<div class="align-self-start overflow-hidden mr-3" style='border-radius:8px'>
-															<img  src="https://yt3.ggpht.com/a/AATXAJxGFj5FjzsskCF0PeN1BOP0ysKz3Sl38_eo_CiZ=s100-c-k-c0xffffffff-no-rj-mo" alt="thumbnail video">
-														</div>
-														<div class="media-body">
-															<h6 class="mt-0 text-dark">Nama Channel</h6>
-															<span class="float-right">5 mins ago</span>
-															<p>Title Youtube</p>
-														</div>
-													</div>
-                                                    </div>
                                                     <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 										    <div class="card-body">
                                             <?= form_open_multipart('user/profile'); ?>

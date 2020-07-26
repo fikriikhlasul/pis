@@ -45,9 +45,6 @@
 										<div class="profile-content-right py-5">
 											<ul class="nav nav-tabs px-3 px-xl-5 nav-style-border" id="myTab" role="tablist">
 												<li class="nav-item">
-													<a class="nav-link " id="recent-tab"  href="profile" role="tab" aria-controls="recent" aria-selected="true">Recent Activities</a>
-												</li>
-												<li class="nav-item">
 													<a class="nav-link " id="profile-tab"  href="profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
 												</li>
 												<li class="nav-item">
