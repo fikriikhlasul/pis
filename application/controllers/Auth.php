@@ -23,7 +23,7 @@ class Auth extends CI_Controller
             'newline'   => "\r\n"
         ];
 
-        $fromemail= 'nanime.us@gmail.com';
+        $fromemail= '';
         $toemail = $this->input->post('email');
         $emtitle = 'Predatech Data Center Information';
         $subject = 'Account Verification';
