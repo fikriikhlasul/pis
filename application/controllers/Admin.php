@@ -37,7 +37,7 @@ class Admin extends CI_Controller
         // Halaman data anggota aktif admin terkait data akun anggota aktif
         
         $data['title'] = 'Manajemen Data Anggota Aktif';
-        $data['user'] = $this->admin->getprofilutama();
+        $data['user'] = $this->admin->getProfilUtama();
         $data['active'] = 'class="active"';
         $data['total_anggota'] = $this->admin->getTotalAnggota();
         $data['total_anggota_aktif'] = $this->admin->getTotalAnggotaAktif();
@@ -56,7 +56,7 @@ class Admin extends CI_Controller
     {
         // Halaman data alumni terkait data akun alumni
         $data['title'] = 'Manajemen Data Alumni';
-        $data['user'] = $this->admin->getprofilutama();
+        $data['user'] = $this->admin->getProfilUtama();
         $data['active'] = 'class="active"';
         $data['total_anggota'] = $this->admin->getTotalAnggota();
         $data['total_anggota_aktif'] = $this->admin->getTotalAnggotaAktif();
@@ -75,7 +75,7 @@ class Admin extends CI_Controller
     {
         // Halaman data alumni terkait data akun alumni
         $data['title'] = 'Manajemen Data Dosen';
-        $data['user'] = $this->admin->getprofilutama();
+        $data['user'] = $this->admin->getProfilUtama();
         $data['active'] = 'class="active"';
         $data['total_anggota'] = $this->admin->getTotalAnggota();
         $data['total_anggota_aktif'] = $this->admin->getTotalAnggotaAktif();
@@ -93,7 +93,7 @@ class Admin extends CI_Controller
       public function editanggota($username)
       { 
         $data['title'] = 'Manajemen Data Anggota Aktif';
-        $data['user'] = $this->admin->getprofilutama();
+        $data['user'] = $this->admin->getProfilUtama();
         $data['anggota'] = $this->db->get_where('user', ['username' => $username])->row_array();
         $data['active'] = 'class="active"';
         $data['color'] = '["#4c84ff", "#29cc97"]';
@@ -146,7 +146,7 @@ class Admin extends CI_Controller
     {   //menampilkan halaman profile admin
         $data['title'] = 'My Profile';
         $data['title1'] = "";
-        $data['user'] = $this->admin->getprofilutama();
+        $data['user'] = $this->admin->getProfilUtama();
         $data['active'] = 'class="active"';
         
         $this->form_validation->set_rules('name', 'Name', 'required|trim');
@@ -230,7 +230,7 @@ class Admin extends CI_Controller
      //ganti password admin
     $data['title'] = 'My Profile';
     $data['title1'] = '';
-    $data['user'] = $this->admin->getprofilutama();
+    $data['user'] = $this->admin->getProfilUtama();
     $data['active'] = 'class="active"';
     
     $this->form_validation->set_rules('current_password', 'Current Password', 'required|trim',[

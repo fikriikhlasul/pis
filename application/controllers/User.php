@@ -6,14 +6,24 @@ class User extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('User_model','user');
         is_logged_in();
     }
 
     public function dashboard()
     {
+        $getLakilaki = $this->user->getLakilaki();
+        $getPerempuan = $this->user->getPerempuan();
         $data['title'] = 'Dashboard';
-        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['user'] = $this->user->getProfilUtama();
         $data['active'] = 'class="active"';
+        $data['demografi'] = $this->user->getUserDemografi();
+        $data['total_anggota'] = $this->user->getTotalAnggota();
+        $data['total_anggota_aktif'] = $this->user->getTotalAnggotaAktif();
+        $data['total_alumni'] = $this->user->getTotalAlumni();
+        $data['total_dosen'] = $this->user->getTotalDosen();
+        $data['color'] = '["#4c84ff", "#29cc97"]';
+        $data['jenis_kelamin'] = '['.$getLakilaki.','.$getPerempuan.']';
         $this->load->view('templates/user/header', $data);
         $this->load->view('templates/user/sidebar', $data);
         $this->load->view('templates/user/topbar', $data);
@@ -23,7 +33,8 @@ class User extends CI_Controller
     public function profile()
     {
         $data['title'] = 'My Profile';
-        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['title1'] = "";
+        $data['user'] = $this->user->getProfilUtama();
         $data['active'] = 'class="active"';
         
         $this->form_validation->set_rules('name', 'Name', 'required|trim');
@@ -80,12 +91,15 @@ class User extends CI_Controller
                     'name' => $name,
                     'tanggal_lahir' => $tanggal_lahir,
                     'username' => $username,
-                    'email' =>  $email,
+                    'email' =>  $email
+                ];
+                $dataz = [
                     'nim' => $nim,
                     'jurusan' => $jurusan
                 ];
                 $this->db->where('username', $username);
                 $this->db->update('user', $data);
+                $this->db->update('user_profil_utama', $dataz);
                 $_SESSION['message'] = "
             Swal.fire({
             icon: 'success',
@@ -101,8 +115,10 @@ class User extends CI_Controller
  }
  public function changepassword()
  {
+    //ganti password user
     $data['title'] = 'My Profile';
-    $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+    $data['title1'] = '';
+    $data['user'] = $this->user->getProfilUtama();
     $data['active'] = 'class="active"';
     
     $this->form_validation->set_rules('current_password', 'Current Password', 'required|trim',[

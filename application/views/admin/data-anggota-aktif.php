@@ -1,3 +1,4 @@
+
 <div class="content-wrapper">
           <div class="content">							<!-- First Row  -->
 							<div class="row">
@@ -86,7 +87,8 @@
                                         <?php $i++; ?>
                                         <?php endforeach; ?>
                                         </tbody>
-                                        </table>
+										</table>
+										
 
 </div>
 </div>

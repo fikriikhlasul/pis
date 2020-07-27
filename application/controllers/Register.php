@@ -24,10 +24,10 @@ class Register extends CI_controller
            $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]', [
                'is_unique' => 'email ini sudah terdaftar!'
            ]);
-           $this->form_validation->set_rules('nim', 'Nim', 'numeric|required|trim|is_unique[user.nim]', [
+           $this->form_validation->set_rules('nim', 'Nim', 'numeric|required|trim|is_unique[user_profil_utama.nim]', [
             'is_unique' => 'nim ini sudah terdaftar!'
         ]);
-        $this->form_validation->set_rules('no_hp', 'Nomor Handphone', 'numeric|required|trim|is_unique[user.no_hp]', [
+        $this->form_validation->set_rules('no_hp', 'Nomor Handphone', 'numeric|required|trim|is_unique[user_profil_utama.no_hp]', [
             'is_unique' => 'Nomor ini sudah terdaftar!',
             'numeric' => 'Nomor handphone hanya angka!'
         ]);
@@ -53,10 +53,6 @@ class Register extends CI_controller
                    'tanggal_lahir' => htmlspecialchars($tanggal_lahir),
                    'username' => htmlspecialchars($username),
                    'email' => htmlspecialchars($email),
-                   'nim' => htmlspecialchars($nim),
-                   'jurusan' => htmlspecialchars($jurusan),
-                   'status' => 'Anggota Aktif',
-                   'no_hp' => htmlspecialchars($no_hp),
                    'image' => 'default.jpg',
                    'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
                    'role_id' => 2,
@@ -66,6 +62,25 @@ class Register extends CI_controller
                $dataz = [
                 'username' => htmlspecialchars($username),
                 'jenis_kelamin' => htmlspecialchars($jenis_kelamin),
+                'agama' => 'Islam',
+                'domisili' => 'null'
+            ];
+            $datas = [
+                'username' => htmlspecialchars($username),
+                'nim' => htmlspecialchars($nim),
+                'jurusan' => htmlspecialchars($jurusan),
+                'tahun_masuk_univ' => 'null',
+                'no_hp' => htmlspecialchars($no_hp),
+                'alamat' => 'null'
+
+            ];
+            $datax = [
+                'username' => htmlspecialchars($username),
+                'no_anggota' => 'null',
+                'puzzle' => 'null',
+                'status' => 'Anggota Aktif',
+                'bidang_riset' => 'null'
+
             ];
     
                // siapkan token
@@ -78,6 +93,8 @@ class Register extends CI_controller
     
                $this->db->insert('user', $data);
                $this->db->insert('user_demografi', $dataz);
+               $this->db->insert('user_profil_utama', $datas);
+               $this->db->insert('user_profil_predatech', $datax);
             //    $this->db->insert('user_token', $user_token);
     
             //    $this->_sendEmail($token, 'verify');
