@@ -66,7 +66,7 @@
 					<div class="container" style="text-align:center">
 					<h8> Lupa password?<a href="forgot-password"class="txt1"> Reset</a></h8><br/>
                    <h8> Dafar keanggotaan<a href="register"class="txt1"> Daftar</a></h8><br/>
-					<a href="/pis-client"class="txt1"> Home</a>
+					<a href="<?= base_url();?>"class="txt1"> Home</a>
                     </div>
 					
 

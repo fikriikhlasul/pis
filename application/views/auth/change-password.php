@@ -65,7 +65,7 @@
                     </div>
                     <div class="container" style="text-align:center">
                     <br/>
-					<a href="/pis-client/login"class="txt1"> Masuk</a>
+					<a href="<?=base_url();?>login"class="txt1"> Masuk</a>
                     </div>
 					
 
