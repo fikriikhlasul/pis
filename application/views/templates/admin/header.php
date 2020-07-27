@@ -19,6 +19,9 @@
   <link href="<?= base_url('sleek/')?>assets/plugins/ladda/ladda.min.css" rel="stylesheet" />
   <link href="<?= base_url('sleek/')?>assets/plugins/select2/css/select2.min.css" rel="stylesheet" />
   <link href="<?= base_url('sleek/')?>assets/plugins/daterangepicker/daterangepicker.css" rel="stylesheet" />
+  <link href="<?= base_url('sleek/')?>assets/plugins/data-tables/datatables.bootstrap4.min.css" rel="stylesheet">
+  <link href="<?= base_url('sleek/')?>assets/plugins/data-tables/responsive.datatables.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/sleek-dashboard/dist/assets/css/sleek.min.css">
   
 
 

@@ -6,24 +6,147 @@ class Admin extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('Admin_model','admin');
         is_logged_in();
     }
 
     public function dashboard()
     {
+        // Halaman dashboard admin terkait data data chart , demografi dll
+        $getLakilaki = $this->admin->getLakilaki();
+        $getPerempuan = $this->admin->getPerempuan();
         $data['title'] = 'Dashboard';
-        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['user'] = $this->admin->getProfilUtama();
         $data['active'] = 'class="active"';
+        $data['demografi'] = $this->admin->getUserDemografi();
+        $data['total_anggota'] = $this->admin->getTotalAnggota();
+        $data['total_anggota_aktif'] = $this->admin->getTotalAnggotaAktif();
+        $data['total_alumni'] = $this->admin->getTotalAlumni();
+        $data['total_dosen'] = $this->admin->getTotalDosen();
+        $data['color'] = '["#4c84ff", "#29cc97"]';
+        $data['jenis_kelamin'] = '['.$getLakilaki.','.$getPerempuan.']';
         $this->load->view('templates/admin/header', $data);
         $this->load->view('templates/admin/sidebar', $data);
         $this->load->view('templates/admin/topbar', $data);
         $this->load->view('admin/dashboard', $data);
         $this->load->view('templates/admin/footer');
     }
-    public function profile()
+
+    public function dataanggotaaktif()
     {
+        // Halaman data anggota aktif admin terkait data akun anggota aktif
+        
+        $data['title'] = 'Manajemen Data Anggota Aktif';
+        $data['user'] = $this->admin->getprofilutama();
+        $data['active'] = 'class="active"';
+        $data['total_anggota'] = $this->admin->getTotalAnggota();
+        $data['total_anggota_aktif'] = $this->admin->getTotalAnggotaAktif();
+        $data['total_alumni'] = $this->admin->getTotalAlumni();
+        $data['total_dosen'] = $this->admin->getTotalDosen();
+        $data['data_anggota_aktif'] = $this->admin->getDataAnggotaAktif();
+        $data['color'] = '["#4c84ff", "#29cc97"]';
+        $this->load->view('templates/admin/header', $data);
+        $this->load->view('templates/admin/sidebar', $data);
+        $this->load->view('templates/admin/topbar', $data);
+        $this->load->view('admin/data-anggota-aktif', $data);
+        $this->load->view('templates/admin/footer');
+    }
+
+    public function dataalumni()
+    {
+        // Halaman data alumni terkait data akun alumni
+        $data['title'] = 'Manajemen Data Alumni';
+        $data['user'] = $this->admin->getprofilutama();
+        $data['active'] = 'class="active"';
+        $data['total_anggota'] = $this->admin->getTotalAnggota();
+        $data['total_anggota_aktif'] = $this->admin->getTotalAnggotaAktif();
+        $data['total_alumni'] = $this->admin->getTotalAlumni();
+        $data['total_dosen'] = $this->admin->getTotalDosen();
+        $data['data_alumni'] = $this->admin->getDataAlumni();
+        $data['color'] = '["#4c84ff", "#29cc97"]';
+        $this->load->view('templates/admin/header', $data);
+        $this->load->view('templates/admin/sidebar', $data);
+        $this->load->view('templates/admin/topbar', $data);
+        $this->load->view('admin/data-alumni', $data);
+        $this->load->view('templates/admin/footer');
+    }
+    
+    public function datadosen()
+    {
+        // Halaman data alumni terkait data akun alumni
+        $data['title'] = 'Manajemen Data Dosen';
+        $data['user'] = $this->admin->getprofilutama();
+        $data['active'] = 'class="active"';
+        $data['total_anggota'] = $this->admin->getTotalAnggota();
+        $data['total_anggota_aktif'] = $this->admin->getTotalAnggotaAktif();
+        $data['total_alumni'] = $this->admin->getTotalAlumni();
+        $data['total_dosen'] = $this->admin->getTotalDosen();
+        $data['data_dosen'] = $this->admin->getDataDosen();
+        $data['color'] = '["#4c84ff", "#29cc97"]';
+        $this->load->view('templates/admin/header', $data);
+        $this->load->view('templates/admin/sidebar', $data);
+        $this->load->view('templates/admin/topbar', $data);
+        $this->load->view('admin/data-dosen', $data);
+        $this->load->view('templates/admin/footer');
+    }
+//================ Function edit akun user=================//
+      public function editanggota($username)
+      { 
+        $data['title'] = 'Manajemen Data Anggota Aktif';
+        $data['user'] = $this->admin->getprofilutama();
+        $data['anggota'] = $this->db->get_where('user', ['username' => $username])->row_array();
+        $data['active'] = 'class="active"';
+        $data['color'] = '["#4c84ff", "#29cc97"]';
+        $this->load->view('templates/admin/header', $data);
+        $this->load->view('templates/admin/sidebar', $data);
+        $this->load->view('templates/admin/topbar', $data);
+        $this->load->view('admin/ubah-anggota', $data);
+        $this->load->view('templates/admin/footer');
+      }
+//================ Function hapus akun user=================//
+    public function hapusanggota($username)
+    {
+        $this->db->delete('user', ['username' => $username]);
+        $this->db->delete('user_demografi', ['username' => $username]);
+        $_SESSION['message'] = "
+                        Swal.fire({
+                        icon: 'success',
+                        title: 'Selamat!',
+                        text: 'Anggota berhasil dihapus!'
+                      })";
+        redirect('admin/data-anggota-aktif');
+    }
+    public function hapusalumni($username)
+    {
+        $this->db->delete('user', ['username' => $username]);
+        $this->db->delete('user_demografi', ['username' => $username]);
+        $_SESSION['message'] = "
+                        Swal.fire({
+                        icon: 'success',
+                        title: 'Selamat!',
+                        text: 'Alumni berhasil dihapus!'
+                      })";
+        redirect('admin/data-alumni');
+    }
+    public function hapusdosen($username)
+    {
+        $this->db->delete('user', ['username' => $username]);
+        $this->db->delete('user_demografi', ['username' => $username]);
+        $_SESSION['message'] = "
+                        Swal.fire({
+                        icon: 'success',
+                        title: 'Selamat!',
+                        text: 'Dosen berhasil dihapus!'
+                      })";
+        redirect('admin/data-dosen');
+    }
+    
+
+    public function profile()
+    {   //menampilkan halaman profile admin
         $data['title'] = 'My Profile';
-        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['title1'] = "";
+        $data['user'] = $this->admin->getprofilutama();
         $data['active'] = 'class="active"';
         
         $this->form_validation->set_rules('name', 'Name', 'required|trim');
@@ -80,12 +203,15 @@ class Admin extends CI_Controller
                     'name' => $name,
                     'tanggal_lahir' => $tanggal_lahir,
                     'username' => $username,
-                    'email' =>  $email,
+                    'email' =>  $email
+                ];
+                $dataz = [
                     'nim' => $nim,
                     'jurusan' => $jurusan
                 ];
                 $this->db->where('username', $username);
                 $this->db->update('user', $data);
+                $this->db->update('user_profil_utama', $dataz);
                 $_SESSION['message'] = "
             Swal.fire({
             icon: 'success',
@@ -101,8 +227,10 @@ class Admin extends CI_Controller
  }
  public function changepassword()
  {
+     //ganti password admin
     $data['title'] = 'My Profile';
-    $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+    $data['title1'] = '';
+    $data['user'] = $this->admin->getprofilutama();
     $data['active'] = 'class="active"';
     
     $this->form_validation->set_rules('current_password', 'Current Password', 'required|trim',[
@@ -162,6 +290,7 @@ class Admin extends CI_Controller
 }
 public function removepicture()
 {
+    //hapus gambar
     $image = $this->input->post('image');
     $this->db->set('image',$image);
     $this->db->where('username', $this->session->userdata('username'));

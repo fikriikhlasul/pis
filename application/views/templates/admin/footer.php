@@ -34,9 +34,16 @@
 <script src="<?= base_url('sleek/')?>assets/plugins/jvectormap/jquery-jvectormap-world-mill.js"></script>
 <script src="<?= base_url('sleek/')?>assets/plugins/daterangepicker/moment.min.js"></script>
 <script src="<?= base_url('sleek/')?>assets/plugins/daterangepicker/daterangepicker.js"></script>
+<script src="<?= base_url('sleek/')?>assets/plugins/data-tables/jquery.datatables.min.js"></script>
+<script src="<?= base_url('sleek/')?>assets/plugins/data-tables/datatables.bootstrap4.min.js"></script>
+<script src="<?= base_url('sleek/')?>assets/plugins/data-tables/datatables.responsive.min.js"></script>
 <script src="<?= base_url('sleek/')?>assets/plugins/jekyll-search.min.js"></script>
 <script src="<?= base_url('sleek/')?>assets/js/sleek.js"></script>
-<script src="<?= base_url('sleek/')?>assets/js/chart.js"></script>
+<script type="text/javascript">
+var color = <?php echo $color?>;
+var data = <?php echo $jenis_kelamin?>;
+</script>
+<script src="<?= base_url('sleek/')?>assets/js/chartku.js"></script>
 <script src="<?= base_url('sleek/')?>assets/js/date-range.js"></script>
 <script src="<?= base_url('sleek/')?>assets/js/map.js"></script>
 <script src="<?= base_url('sleek/')?>assets/js/custom.js"></script>

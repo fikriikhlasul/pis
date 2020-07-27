@@ -850,7 +850,7 @@ $(document).ready(function() {
         datasets: [
           {
             label: ["completed", "unpaid", "pending", "canceled"],
-            data: [4100, 2500, 1800, 2300],
+            data: [4100, 4800, 1800, 2300],
             backgroundColor: ["#4c84ff", "#29cc97", "#8061ef", "#fec402"],
             borderWidth: 1
             // borderColor: ['#4c84ff','#29cc97','#8061ef','#fec402']

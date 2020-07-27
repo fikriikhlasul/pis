@@ -28,14 +28,14 @@
 												<p><?=$user['email']?></p>
 												<p class="text-dark font-weight-medium pt-4 mb-2">Nomor Handphone</p>
 												<p><?=$user['no_hp']?></p>
-                                                <p class="text-dark font-weight-medium pt-4 mb-2">Bergabung Sejak</p>
-                                                <?php $date_created_first = $user['date_created'];
+                                                <!--<p class="text-dark font-weight-medium pt-4 mb-2">Bergabung Sejak</p>-->
+                                                <?php /*$date_created_first = $user['date_created'];
                                                       $date_created_second = date("D, d M Y", $date_created_first);
                                                       $array1=['Mon','Tue','Wed','Thu','Fri','Sat','Sun','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
                                                       $array2=['Senin','Selasa','Rabu','Kamis','Jumat','Sabtu','Minggu','Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember']; 
-                                                      $date_created = str_replace($array1,$array2,$date_created_second);
+                                                      $date_created = str_replace($array1,$array2,$date_created_second);*/
                                                 ?>
-												<p><?=$date_created; ?></p>
+												<p><?//=$date_created; ?></p>
 												<!-- <p class="text-dark font-weight-medium pt-4 mb-2">Social Profile</p>
 												<p class="pb-3 social-button">
 													<a href="#" class="mb-1 btn btn-outline btn-instagram rounded-circle">

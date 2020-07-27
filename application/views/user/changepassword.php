@@ -51,21 +51,21 @@
 													<a class="nav-link active" id="settings-tab"  href="changepassword" role="tab" aria-controls="settings" aria-selected="false">Settings</a>
 												</li>
                                             </ul>
-                                            <div class="tab-content px-3 px-xl-5" id="myTabContent">
+                                            <div class="tab-content px-3 px-xl-5 mt-5" id="myTabContent">
 												<div class="tab-pane fade fade show active" id="settings" role="tabpanel" aria-labelledby="settings-tab">
                                                 <form method='post' action='<?=base_url();?>user/changepassword'>
                                                 <div class="form-group">
-                                                    <label for="exampleFormControlPassword">Password lama</label>
+                                                    
 													<input type="password" class="form-control" name="current_password" placeholder="Password lama">
                                                     <?= form_error('current_password', '<small class="text-danger pl-3">', '</small>'); ?>
                                                 </div>
                                                 <div class="form-group">
-													<label for="exampleFormControlPassword">Password baru</label>
+													
 													<input type="password" class="form-control" name="new_password1" placeholder="Password baru">
                                                     <?= form_error('new_password1', '<small class="text-danger pl-3">', '</small>'); ?>
                                                 </div>
                                                 <div class="form-group">
-													<label for="exampleFormControlPassword">Ketik ulang password baru</label>
+													
 													<input type="password" class="form-control" name="new_password2" placeholder="ketik ulang password baru">
                                                     <?= form_error('new_password2', '<small class="text-danger pl-3">', '</small>'); ?>
                                                 </div>

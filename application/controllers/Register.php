@@ -42,6 +42,7 @@ class Register extends CI_controller
                $this->load->view('auth/register');
            } else {
                $username = $this->input->post('username', true);
+               $jenis_kelamin = $this->input->post('jenis_kelamin', true);
                $email = $this->input->post('email', true);
                $nim = $this->input->post('nim', true);
                $jurusan = $this->input->post('jurusan', true);
@@ -62,6 +63,10 @@ class Register extends CI_controller
                    'is_active' => 1,
                    'date_created' => time()
                ];
+               $dataz = [
+                'username' => htmlspecialchars($username),
+                'jenis_kelamin' => htmlspecialchars($jenis_kelamin),
+            ];
     
                // siapkan token
             //    $token = base64_encode(random_bytes(32));
@@ -72,6 +77,7 @@ class Register extends CI_controller
             //    ];
     
                $this->db->insert('user', $data);
+               $this->db->insert('user_demografi', $dataz);
             //    $this->db->insert('user_token', $user_token);
     
             //    $this->_sendEmail($token, 'verify');

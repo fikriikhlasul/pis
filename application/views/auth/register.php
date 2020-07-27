@@ -57,6 +57,15 @@
 						<?= form_error('username', '<small class="text-danger pl-3">', '</small>'); ?>
 					</div>
 
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Jenis Kelamin is required">
+						<select class="input100" name="jenis_kelamin" form='isian'>
+						<option value="">--Pilih Jenis Kelamin--</option>
+						<option value="Laki-laki">Laki-laki</option>
+						<option value="Perempuan">Perempuan</option>
+						</select>
+						<span class="focus-input100"></span>
+					</div>
+
 					<div class="wrap-input100 validate-input m-b-16" data-validate = "Email is required">
 						<input class="input100" type="text" name="email" placeholder="Email">
 						<span class="focus-input100"></span>
@@ -71,6 +80,7 @@
 
 					<div class="wrap-input100 validate-input m-b-16" data-validate = "Jurusan is required">
 						<select class="input100" name="jurusan" form='isian'>
+						<option value="">--Pilih Jurusan--</option>
 						<option value="Sistem Informasi">Sistem Informasi</option>
 						<option value="Teknik Informatika">Teknik Informatika</option>
 						<option value="Matematika">Matematika</option>

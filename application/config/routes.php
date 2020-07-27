@@ -49,6 +49,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+
+
+/*  routes adalah untuk mengalihkan url ke controller dan method(function) tujuan
+contoh 1 = $route['admin/data-anggota-aktif'] = 'admin/datauser';
+dibaca :  alihkan jika mengakses url admin/data-anggota-aktif ke controller 'admin' dengan fungsi 'datauser'
+
+alasan penggunaan routes ini adalah agar lebih readable saat pengaksesan url,lebih dipahami admin/user yang mengoperasikan sistem nantinya
+*/
 $route['default_controller'] = 'landing';
 $route['404_override'] = 'my404';
 $route['translate_uri_dashes'] = FALSE;
@@ -57,6 +65,25 @@ $route['admin'] = 'admin/dashboard';
 $route['user'] = 'user/dashboard';
 $route['forgot-password'] = 'auth/forgotpassword';
 $route['change-password'] = 'auth/changepassword';
+//route data semua role//
+$route['admin/data-anggota-aktif'] = 'admin/dataanggotaaktif';
+$route['admin/data-alumni'] = 'admin/dataalumni';
+$route['admin/data-dosen'] = 'admin/datadosen';
+//route kelola role anggota//
+$route['admin/hapus-anggota/(:any)'] = 'admin/hapusanggota/$1';
+$route['admin/ubah-anggota/(:any)'] = 'admin/editanggota/$1';
+$route['admin/detail-anggota/(:any)'] = 'admin/detailanggota/$1';
+$route['admin/tambah-anggota/(:any)'] = 'admin/tambahanggota/$1';
+//route kelola role alumni//
+$route['admin/hapus-alumni/(:any)'] = 'admin/hapusalumni/$1';
+$route['admin/ubah-alumni/(:any)'] = 'admin/editalumni/$1';
+$route['admin/detail-alumni/(:any)'] = 'admin/detailalumni/$1';
+$route['admin/tambah-alumni/(:any)'] = 'admin/tambahalumni/$1';
+//route kelola role dosen//
+$route['admin/hapus-dosen/(:any)'] = 'admin/hapusdosen/$1';
+$route['admin/ubah-dosen/(:any)'] = 'admin/editdosen/$1';
+$route['admin/detail-dosen/(:any)'] = 'admin/detaildosen/$1';
+$route['admin/tambah-dosen/(:any)'] = 'admin/tambahdosen/$1';
 
 
 
