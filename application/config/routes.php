@@ -66,6 +66,7 @@ $route['user'] = 'user/dashboard';
 $route['forgot-password'] = 'auth/forgotpassword';
 $route['change-password'] = 'auth/changepassword';
 //route data semua role//
+$route['admin/data-seluruh-anggota'] = 'admin/dataseluruhanggota';
 $route['admin/data-anggota-aktif'] = 'admin/dataanggotaaktif';
 $route['admin/data-alumni'] = 'admin/dataalumni';
 $route['admin/data-dosen'] = 'admin/datadosen';

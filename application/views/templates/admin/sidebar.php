@@ -43,15 +43,22 @@
                       </div>
                     </ul>
                   </li>
-                  <li  class="has-sub <?php if($title == "Manajemen Data Anggota Aktif"||$title == "Manajemen Data Alumni"||$title == "Manajemen Data Dosen") echo "active expand";?> " >
+                  <li  class="has-sub <?php if($title == "Manajemen Data Seluruh Anggota"||$title == "Manajemen Data Anggota Aktif"||$title == "Manajemen Data Alumni"||$title == "Manajemen Data Dosen") echo "active expand";?> " >
                     <a class="sidenav-item-link"  data-toggle="collapse" data-target="#data-master"
                       aria-expanded="false" aria-controls="account">
                       <i class="mdi mdi-database-edit"></i>
                       <span class="nav-text">Data Master</span> <b class="caret"></b>
                     </a>
-                    <ul  class="collapse <?php if($title == "Manajemen Data Anggota Aktif"||$title == "Manajemen Data Alumni"||$title == "Manajemen Data Dosen") echo "show";?>"  id="data-master"
+                    <ul  class="collapse <?php if($title == "Manajemen Data Seluruh Anggota"||$title == "Manajemen Data Anggota Aktif"||$title == "Manajemen Data Alumni"||$title == "Manajemen Data Dosen") echo "show";?>"  id="data-master"
                       data-parent="#sidebar-menu">
                       <div class="sub-menu">
+
+                            <li <?php if($title == "Manajemen Data Seluruh Anggota") echo "class='active'";?>>
+                              <a class="sidenav-item-link" href="<?= base_url();?>admin/data-seluruh-anggota">
+                                <span class="nav-text mdi mdi-account-group"> Data Seluruh Anggota</span>
+                                
+                              </a>
+                            </li>
                             <li <?php if($title == "Manajemen Data Anggota Aktif") echo "class='active'";?>>
                               <a class="sidenav-item-link" href="<?= base_url();?>admin/data-anggota-aktif">
                                 <span class="nav-text mdi mdi-account-multiple"> Data Anggota Aktif</span>
@@ -60,7 +67,7 @@
                             </li>
                             <li <?php if($title == "Manajemen Data Alumni") echo "class='active'";?>>
                               <a class="sidenav-item-link" href="<?= base_url();?>admin/data-alumni">
-                                <span class="nav-text mdi mdi-account-group"> Data Alumni</span>
+                                <span class="nav-text mdi mdi-account"> Data Alumni</span>
                                 
                               </a>
                             </li>

@@ -32,6 +32,26 @@ class Admin extends CI_Controller
         $this->load->view('templates/admin/footer');
     }
 
+    public function dataseluruhanggota()
+    {
+        // Menampilkan data anggota keseluruhan 
+        
+        $data['title'] = 'Manajemen Data Seluruh Anggota';
+        $data['user'] = $this->admin->getProfilUtama();
+        $data['active'] = 'class="active"';
+        $data['total_anggota'] = $this->admin->getTotalAnggota();
+        $data['total_anggota_aktif'] = $this->admin->getTotalAnggotaAktif();
+        $data['total_alumni'] = $this->admin->getTotalAlumni();
+        $data['total_dosen'] = $this->admin->getTotalDosen();
+        $data['data_seluruh_anggota'] = $this->admin->getDataSeluruhAnggota();
+        $data['color'] = '["#4c84ff", "#29cc97"]';
+        $this->load->view('templates/admin/header', $data);
+        $this->load->view('templates/admin/sidebar', $data);
+        $this->load->view('templates/admin/topbar', $data);
+        $this->load->view('admin/data-seluruh-anggota', $data);
+        $this->load->view('templates/admin/footer');
+    }
+
     public function dataanggotaaktif()
     {
         // Halaman data anggota aktif admin terkait data akun anggota aktif
@@ -94,20 +114,84 @@ class Admin extends CI_Controller
       { 
         $data['title'] = 'Manajemen Data Anggota Aktif';
         $data['user'] = $this->admin->getProfilUtama();
-        $data['anggota'] = $this->db->get_where('user', ['username' => $username])->row_array();
+        $data['anggota'] = $this->admin->getAnggotaByUname($username);
+        $data['angkatan'] = $this->db->get('pis_angkatan_univ')->result_array();
+        $data['puzzle'] = $this->db->get('pis_angkatan_puzzle')->result_array();
+        $data['bidang_riset'] = $this->db->get('pis_bidang_riset')->result_array();
         $data['active'] = 'class="active"';
-        $data['color'] = '["#4c84ff", "#29cc97"]';
-        $this->load->view('templates/admin/header', $data);
-        $this->load->view('templates/admin/sidebar', $data);
-        $this->load->view('templates/admin/topbar', $data);
-        $this->load->view('admin/ubah-anggota', $data);
-        $this->load->view('templates/admin/footer');
+       
+        
+        $this->form_validation->set_rules('name', 'Name', 'required|trim');
+        $this->form_validation->set_rules('tanggal_lahir', 'Tanggal lahir', 'required|trim');
+        $this->form_validation->set_rules('username', 'Username', 'required|trim');
+        $this->form_validation->set_rules('email', 'Email', 'required|trim');
+        $this->form_validation->set_rules('nim', 'Nim', 'required|trim');
+        $this->form_validation->set_rules('jurusan', 'Jurusan', 'required|trim');
+       // $this->form_validation->set_rules('role', 'Role', 'required|trim');
+        
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/admin/header', $data);
+            $this->load->view('templates/admin/sidebar', $data);
+            $this->load->view('templates/admin/topbar', $data);
+            $this->load->view('admin/ubah-anggota', $data);
+            $this->load->view('templates/admin/footer');
+        } else {
+            $name = $this->input->post('name');
+            $tanggal_lahir = $this->input->post('tanggal_lahir');
+            $username=$this->input->post('username');
+            $email=$this->input->post('email');
+            $nim=$this->input->post('nim');
+            $jurusan=$this->input->post('jurusan');
+            $tahun_masuk_univ=$this->input->post('tahun_masuk_univ');
+            $no_hp=$this->input->post('no_hp');
+            $no_anggota=$this->input->post('no_anggota');
+            $puzzle=$this->input->post('puzzle');
+            $status=$this->input->post('status');
+            $alamat=$this->input->post('alamat');
+            $bidang_riset=$this->input->post('bidang_riset');
+            $data = [
+                'name' => $name,
+                'tanggal_lahir' => $tanggal_lahir,
+                'username' => $username,
+                'email' =>  $email
+            ];
+            $dataz = [
+                'nim' => $nim,
+                'jurusan' => $jurusan,
+                'tahun_masuk_univ' => $tahun_masuk_univ,
+                'no_hp' => $no_hp,
+                'alamat'=>$alamat
+            ];
+            $datas = [
+                'no_anggota' => $no_anggota,
+                'puzzle' => $puzzle,
+                'status' => $status,
+                'bidang_riset' => $bidang_riset
+            ];
+            $this->db->update('user', $data,['username'=>$username]);
+            $this->db->update('user_profil_utama', $dataz,['username'=>$username]);
+            $this->db->update('user_profil_predatech', $datas,['username'=>$username]);
+            
+            
+            $_SESSION['message'] = "
+        Swal.fire({
+        icon: 'success',
+        title: 'Selamat!',
+        text: 'Data anggota berhasil diubah!'
+        })";
+        redirect('admin/data-anggota-aktif');
+
+
+    }
+    
       }
 //================ Function hapus akun user=================//
     public function hapusanggota($username)
     {
         $this->db->delete('user', ['username' => $username]);
         $this->db->delete('user_demografi', ['username' => $username]);
+        $this->db->delete('user_profil_utama', ['username' => $username]);
+        $this->db->delete('user_profil_predatech', ['username' => $username]);
         $_SESSION['message'] = "
                         Swal.fire({
                         icon: 'success',

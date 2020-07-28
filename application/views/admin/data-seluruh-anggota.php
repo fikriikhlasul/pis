@@ -1,3 +1,4 @@
+
 <div class="content-wrapper">
           <div class="content">							<!-- First Row  -->
 							<div class="row">
@@ -48,7 +49,7 @@
                                 <div class="col-12">
 									<div class="card card-default">
                                     <div class="card-header card-header-border-bottom d-flex justify-content-between">
-											<h2>Data Anggota Aktif</h2>
+											<h2>Data Seluruh Anggota</h2>
 											<a href="tambah-anggota" class="btn btn-outline-primary btn-sm text-uppercase">
 												<i class=" mdi mdi-account-plus mr-1"></i> Tambah
 											</a>
@@ -63,24 +64,26 @@
                                             <th>Username</th>
                                             <th>email</th>
                                             <th>NIM</th>
-                                            <th>Jurusan</th>
+											<th>Jurusan</th>
+											<th>Jabatan Organisasi</th>
                                             <th>Aksi</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                             <?php $i = 1;?>
-                                            <?php foreach ($data_anggota_aktif as $dau) : ?>     
+                                            <?php foreach ($data_seluruh_anggota as $dsa) : ?>     
                                             <tr>
                                             <td><?= $i; ?></td>
-                                            <td><?= $dau['name']; ?></td>
-                                            <td><?= $dau['username']; ?></td>
-                                            <td><?= $dau['email']; ?></td>
-                                            <td><?= $dau['nim']; ?></td>
-                                            <td><?= $dau['jurusan']; ?></td>
+                                            <td><?= $dsa['name']; ?></td>
+                                            <td><?= $dsa['username']; ?></td>
+                                            <td><?= $dsa['email']; ?></td>
+                                            <td><?= $dsa['nim']; ?></td>
+											<td><?= $dsa['jurusan']; ?></td>
+											<td><?= $dsa['status']; ?></td>
                                             <td>
-                                            <a href="<?= base_url('admin/detail-anggota/') . $dau['username']; ?>" class="badge badge-info">detail</a>
-                                            <a href="<?= base_url('admin/ubah-anggota/') . $dau['username']; ?>" class="badge badge-success">edit</a>
-                                            <a href="<?= base_url('admin/hapus-anggota/') . $dau['username']; ?>" class="badge badge-danger tombol-hapusanggota">delete</a>                    
+                                            <a href="<?= base_url('admin/detail-anggota/') . $dsa['username']; ?>" class="badge badge-info">detail</a>
+                                            <a href="<?= base_url('admin/ubah-anggota/') . $dsa['username']; ?>" class="badge badge-success">edit</a>
+                                            <a href="<?= base_url('admin/hapus-anggota/') . $dsa['username']; ?>" class="badge badge-danger tombol-hapusanggota">delete</a>                    
                                             </td>
                                         </tr>
                                         <?php $i++; ?>

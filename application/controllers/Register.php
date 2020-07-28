@@ -63,7 +63,7 @@ class Register extends CI_controller
                 'username' => htmlspecialchars($username),
                 'jenis_kelamin' => htmlspecialchars($jenis_kelamin),
                 'agama' => 'Islam',
-                'domisili' => 'null'
+                'domisili' => 'Pekanbaru'
             ];
             $datas = [
                 'username' => htmlspecialchars($username),
