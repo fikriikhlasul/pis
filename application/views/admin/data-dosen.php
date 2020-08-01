@@ -63,8 +63,7 @@
                                             <th>Nama</th>
                                             <th>Username</th>
                                             <th>email</th>
-                                            <th>NIM</th>
-                                            <th>Jurusan</th>
+                                            <th>NIP</th>
                                             <th>Aksi</th>
                                         </tr>
                                         </thead>
@@ -76,8 +75,7 @@
                                             <td><?= $dd['name']; ?></td>
                                             <td><?= $dd['username']; ?></td>
                                             <td><?= $dd['email']; ?></td>
-                                            <td><?= $dd['nim']; ?></td>
-                                            <td><?= $dd['jurusan']; ?></td>
+                                            <td><?= $dd['nip']; ?></td>
                                             <td>
                                             <a href="<?= base_url('admin/detail-dosen/') . $dd['username']; ?>" class="badge badge-info">detail</a>
                                             <a href="<?= base_url('admin/ubah-dosen/') . $dd['username']; ?>" class="badge badge-success">edit</a>

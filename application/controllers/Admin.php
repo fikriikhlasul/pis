@@ -112,6 +112,7 @@ class Admin extends CI_Controller
 //================ Function edit akun user=================//
       public function editanggota($username)
       { 
+          //ubahanggotaaktif
         $data['title'] = 'Manajemen Data Anggota Aktif';
         $data['user'] = $this->admin->getProfilUtama();
         $data['anggota'] = $this->admin->getAnggotaByUname($username);
@@ -149,11 +150,15 @@ class Admin extends CI_Controller
             $status=$this->input->post('status');
             $alamat=$this->input->post('alamat');
             $bidang_riset=$this->input->post('bidang_riset');
+            $jenis_kelamin=$this->input->post('jenis_kelamin');
+            $agama=$this->input->post('agama');
+            $domisili=$this->input->post('domisili');
             $data = [
                 'name' => $name,
                 'tanggal_lahir' => $tanggal_lahir,
                 'username' => $username,
-                'email' =>  $email
+                'email' =>  $email,
+                'status' => $status
             ];
             $dataz = [
                 'nim' => $nim,
@@ -165,12 +170,17 @@ class Admin extends CI_Controller
             $datas = [
                 'no_anggota' => $no_anggota,
                 'puzzle' => $puzzle,
-                'status' => $status,
                 'bidang_riset' => $bidang_riset
+            ];
+            $datax = [
+                'jenis_kelamin' => $jenis_kelamin,
+                'agama' => $agama,
+                'domisili' => $domisili
             ];
             $this->db->update('user', $data,['username'=>$username]);
             $this->db->update('user_profil_utama', $dataz,['username'=>$username]);
             $this->db->update('user_profil_predatech', $datas,['username'=>$username]);
+            $this->db->update('user_demografi', $datax,['username'=>$username]);
             
             
             $_SESSION['message'] = "
@@ -179,7 +189,143 @@ class Admin extends CI_Controller
         title: 'Selamat!',
         text: 'Data anggota berhasil diubah!'
         })";
-        redirect('admin/data-anggota-aktif');
+        redirect('admin/ubah-anggota/'.$username);
+
+    }
+    
+      }
+      public function editalumni($username)
+      { 
+          //ubahanggotaaktif
+        $data['title'] = 'Manajemen Data Alumni';
+        $data['user'] = $this->admin->getProfilUtama();
+        $data['alumni'] = $this->admin->getAlumniByUname($username);
+        $data['angkatan'] = $this->db->get('pis_angkatan_univ')->result_array();
+        $data['puzzle'] = $this->db->get('pis_angkatan_puzzle')->result_array();
+        $data['bidang_riset'] = $this->db->get('pis_bidang_riset')->result_array();
+        $data['active'] = 'class="active"';
+       
+        
+        $this->form_validation->set_rules('username', 'Username', 'required|trim');
+        $this->form_validation->set_rules('tanggal_tamat', 'Tanggal Tamat', 'required|trim');
+        $this->form_validation->set_rules('pekerjaan_pertama', 'Pekerjaan Pertama', 'required|trim');
+        $this->form_validation->set_rules('masa_tunggu', 'Masa Tunggu', 'required|trim');
+        $this->form_validation->set_rules('pekerjaan_saat_ini', 'Pekerjaan Saat Ini', 'required|trim');
+        $this->form_validation->set_rules('jabatan', 'Jabatan', 'required|trim');
+        $this->form_validation->set_rules('tempat_bekerja', 'Tempat Bekerja', 'required|trim');
+        $this->form_validation->set_rules('alamat_kerja', 'Alamat Bekerja', 'required|trim');
+        $this->form_validation->set_rules('mulai_kerja', 'Mulai Bekerja', 'required|trim');
+        $this->form_validation->set_rules('penghasilan_saat_ini', 'Penghasilan Saat Ini', 'required|trim');
+        // $this->form_validation->set_rules('role', 'Role', 'required|trim');
+        
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/admin/header', $data);
+            $this->load->view('templates/admin/sidebar', $data);
+            $this->load->view('templates/admin/topbar', $data);
+            $this->load->view('admin/ubah-alumni', $data);
+            $this->load->view('templates/admin/footer');
+        } else {
+            $username = $this->input->post('username');
+            $tanggal_tamat = $this->input->post('tanggal_tamat');
+            $pekerjaan_pertama=$this->input->post('pekerjaan_pertama');
+            $tanggal_mulai_kerja_pertama=$this->input->post('tanggal_mulai_kerja_pertama');
+            $masa_tunggu=$this->input->post('masa_tunggu');
+            $pekerjaan_saat_ini=$this->input->post('pekerjaan_saat_ini');
+            $jabatan=$this->input->post('jabatan');
+            $tempat_bekerja=$this->input->post('tempat_bekerja');
+            $alamat_kerja=$this->input->post('alamat_kerja');
+            $mulai_kerja=$this->input->post('mulai_kerja');
+            $penghasilan_saat_ini=$this->input->post('penghasilan_saat_ini');
+            $data = [
+                'username' => $username,
+                'tanggal_tamat' => $tanggal_tamat,
+                'pekerjaan_pertama' => $pekerjaan_pertama,
+                'tanggal_mulai_kerja_pertama' => $tanggal_mulai_kerja_pertama,
+                'masa_tunggu' =>  $masa_tunggu,
+                'pekerjaan_saat_ini' =>  $pekerjaan_saat_ini,
+                'jabatan' =>  $jabatan,
+                'tempat_bekerja' =>  $tempat_bekerja,
+                'alamat_kerja' =>  $alamat_kerja,
+                'mulai_kerja' =>  $mulai_kerja,
+                'penghasilan_saat_ini' =>  $penghasilan_saat_ini
+            ];
+            
+            $this->db->update('user_profil_pasca_tamat', $data,['username'=>$username]);
+            $_SESSION['message'] = "
+            Swal.fire({
+            icon: 'success',
+            title: 'Selamat!',
+            text: 'Data Alumni berhasil diubah!'
+            })";
+            redirect('admin/ubah-alumni/'.$username);
+
+
+    }
+    
+      }
+
+      public function editdosen($username)
+      { 
+          //ubahanggotaaktif
+        $data['title'] = 'Manajemen Data Dosen';
+        $data['user'] = $this->admin->getProfilUtama();
+        $data['dosen'] = $this->admin->getDosenByUname($username);
+        $data['angkatan'] = $this->db->get('pis_angkatan_univ')->result_array();
+        $data['puzzle'] = $this->db->get('pis_angkatan_puzzle')->result_array();
+        $data['bidang_riset'] = $this->db->get('pis_bidang_riset')->result_array();
+        $data['active'] = 'class="active"';
+       
+        
+        $this->form_validation->set_rules('username', 'Username', 'required|trim');
+        $this->form_validation->set_rules('tanggal_tamat', 'Tanggal Tamat', 'required|trim');
+        $this->form_validation->set_rules('pekerjaan_pertama', 'Pekerjaan Pertama', 'required|trim');
+        $this->form_validation->set_rules('masa_tunggu', 'Masa Tunggu', 'required|trim');
+        $this->form_validation->set_rules('pekerjaan_saat_ini', 'Pekerjaan Saat Ini', 'required|trim');
+        $this->form_validation->set_rules('jabatan', 'Jabatan', 'required|trim');
+        $this->form_validation->set_rules('tempat_bekerja', 'Tempat Bekerja', 'required|trim');
+        $this->form_validation->set_rules('alamat_kerja', 'Alamat Bekerja', 'required|trim');
+        $this->form_validation->set_rules('mulai_kerja', 'Mulai Bekerja', 'required|trim');
+        $this->form_validation->set_rules('penghasilan_saat_ini', 'Penghasilan Saat Ini', 'required|trim');
+        // $this->form_validation->set_rules('role', 'Role', 'required|trim');
+        
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/admin/header', $data);
+            $this->load->view('templates/admin/sidebar', $data);
+            $this->load->view('templates/admin/topbar', $data);
+            $this->load->view('admin/ubah-dosen', $data);
+            $this->load->view('templates/admin/footer');
+        } else {
+            $tanggal_tamat = $this->input->post('tanggal_tamat');
+            $pekerjaan_pertama = $this->input->post('pekerjaan_pertama');
+            $tanggal_mulai_kerja=$this->input->post('tanggal_mulai_kerja');
+            $masa_tunggu=$this->input->post('masa_tunggu');
+            $pekerjaan_saat_ini=$this->input->post('pekerjaan_saat_ini');
+            $jabatan=$this->input->post('jabatan');
+            $tempat_bekerja=$this->input->post('tempat_bekerja');
+            $alamat_kerja=$this->input->post('alamat_kerja');
+            $mulai_kerja=$this->input->post('mulai_kerja');
+            $penghasilan_saat_ini=$this->input->post('penghasilan_saat_ini');
+            $data = [
+                'tanggal_tamat' => $tanggal_tamat,
+                'pekerjaan_pertama' => $pekerjaan_pertama,
+                'tanggal_mulai_kerja' => $tanggal_mulai_kerja,
+                'masa_tunggu' =>  $masa_tunggu,
+                'pekerjaan_saat_ini' =>  $pekerjaan_saat_ini,
+                'jabatan' =>  $jabatan,
+                'tempat_bekerja' =>  $tempat_bekerja,
+                'alamat_kerja' =>  $alamat_kerja,
+                'mulai_kerja' =>  $mulai_kerja,
+                'penghasilan_saat_ini' =>  $penghasilan_saat_ini
+            ];
+            
+            $this->db->update('user_profil_pasca_tamat', $data,['username'=>$username]);
+            $_SESSION['message'] = "
+            Swal.fire({
+            icon: 'success',
+            title: 'Selamat!',
+            text: 'Data Alumni berhasil diubah!'
+            })";
+            redirect('admin/ubah-alumni/'.$username);
 
 
     }

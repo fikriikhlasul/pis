@@ -50,9 +50,9 @@
 									<div class="card card-default">
                                     <div class="card-header card-header-border-bottom d-flex justify-content-between">
 											<h2>Data Seluruh Anggota</h2>
-											<a href="tambah-anggota" class="btn btn-outline-primary btn-sm text-uppercase">
+											<!-- <a href="tambah-anggota" class="btn btn-outline-primary btn-sm text-uppercase">
 												<i class=" mdi mdi-account-plus mr-1"></i> Tambah
-											</a>
+											</a> -->
                                     </div>
                                     <div class="card-body">
 											<div class="basic-data-table">
@@ -62,7 +62,6 @@
                                             <th>No</th>
                                             <th>Nama</th>
                                             <th>Username</th>
-                                            <th>email</th>
                                             <th>NIM</th>
 											<th>Jurusan</th>
 											<th>Jabatan Organisasi</th>
@@ -76,7 +75,6 @@
                                             <td><?= $i; ?></td>
                                             <td><?= $dsa['name']; ?></td>
                                             <td><?= $dsa['username']; ?></td>
-                                            <td><?= $dsa['email']; ?></td>
                                             <td><?= $dsa['nim']; ?></td>
 											<td><?= $dsa['jurusan']; ?></td>
 											<td><?= $dsa['status']; ?></td>

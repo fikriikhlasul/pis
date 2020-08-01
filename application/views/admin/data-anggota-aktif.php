@@ -49,9 +49,9 @@
 									<div class="card card-default">
                                     <div class="card-header card-header-border-bottom d-flex justify-content-between">
 											<h2>Data Anggota Aktif</h2>
-											<a href="tambah-anggota" class="btn btn-outline-primary btn-sm text-uppercase">
+											<!-- <a href="tambah-anggota" class="btn btn-outline-primary btn-sm text-uppercase">
 												<i class=" mdi mdi-account-plus mr-1"></i> Tambah
-											</a>
+											</a> -->
                                     </div>
                                     <div class="card-body">
 											<div class="basic-data-table">
