@@ -46,6 +46,14 @@ class Register extends CI_controller
                $email = $this->input->post('email', true);
                $nim = $this->input->post('nim', true);
                $jurusan = $this->input->post('jurusan', true);
+               $status = $this->input->post('status', true);
+               if ($status=="Alumni")
+               {
+                   $role_id = '3';
+               }else
+               {
+                   $role_id = '2';
+               }
                $no_hp = $this->input->post('no_hp', true);
                $tanggal_lahir = $this->input->post('tanggal_lahir', true);
                $data = [
@@ -55,8 +63,9 @@ class Register extends CI_controller
                    'email' => htmlspecialchars($email),
                    'image' => 'default.jpg',
                    'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
-                   'role_id' => 2,
-                   'is_active' => 1,
+                   'role_id' => $role_id,
+                   'status' => $status,
+                   'is_active' => 0,
                    'date_created' => time()
                ];
                $dataz = [
@@ -78,8 +87,13 @@ class Register extends CI_controller
                 'username' => htmlspecialchars($username),
                 'no_anggota' => 'null',
                 'puzzle' => 'null',
-                'status' => 'Anggota Aktif',
-                'bidang_riset' => 'null'
+                'bidang_riset' => 'null',
+                'jabatan' => 'Anggota Aktif'
+
+            ];
+            $dataal = [
+                'username' => htmlspecialchars($username)
+                
 
             ];
     
@@ -92,9 +106,13 @@ class Register extends CI_controller
             //    ];
     
                $this->db->insert('user', $data);
-               $this->db->insert('user_demografi', $dataz);
-               $this->db->insert('user_profil_utama', $datas);
-               $this->db->insert('user_profil_predatech', $datax);
+                $this->db->insert('user_demografi', $dataz);
+                $this->db->insert('user_profil_utama', $datas);
+                $this->db->insert('user_profil_predatech', $datax);
+            //    if($status=="Alumni")
+            //    {
+            //     $this->db->insert('user_profil_pasca_tamat', $dataal);
+            //    }
             //    $this->db->insert('user_token', $user_token);
     
             //    $this->_sendEmail($token, 'verify');
@@ -103,7 +121,7 @@ class Register extends CI_controller
             Swal.fire({
             icon: 'success',
             title: 'Selamat!',
-            text: 'Akun anda berhasil dibuat!'
+            text: 'Akun anda berhasil dibuat,Silahkan tunggu verifikasi dari admin'
             })";
             //    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Selamat! akun anda berhasil di buat. silahkan login</div>');
                redirect('login');

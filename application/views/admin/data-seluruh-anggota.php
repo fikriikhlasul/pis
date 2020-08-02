@@ -9,7 +9,7 @@
 										</div>
 										<div class="media-body align-self-center">
 											<h4 class="text-primary mb-2"><?= $total_anggota?> Orang</h4>
-											<p>Total Anggota</p>
+											<p>Total Pengguna</p>
 										</div>
 									</div>
 								</div>
@@ -64,7 +64,7 @@
                                             <th>Username</th>
                                             <th>NIM</th>
 											<th>Jurusan</th>
-											<th>Jabatan Organisasi</th>
+											<th>Status</th>
                                             <th>Aksi</th>
                                         </tr>
                                         </thead>
@@ -81,7 +81,7 @@
                                             <td>
                                             <a href="<?= base_url('admin/detail-anggota/') . $dsa['username']; ?>" class="badge badge-info">detail</a>
                                             <a href="<?= base_url('admin/ubah-anggota/') . $dsa['username']; ?>" class="badge badge-success">edit</a>
-                                            <a href="<?= base_url('admin/hapus-anggota/') . $dsa['username']; ?>" class="badge badge-danger tombol-hapusanggota">delete</a>                    
+                                            <a href="<?= base_url('admin/hapus-anggota/') . $dsa['username']; ?>" class="badge badge-danger tombol-hapusseluruh">delete</a>                    
                                             </td>
                                         </tr>
                                         <?php $i++; ?>

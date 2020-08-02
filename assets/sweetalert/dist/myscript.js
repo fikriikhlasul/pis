@@ -28,7 +28,46 @@ $('.tombol-logout').on('click', function (e) {
     })
 
 });
+$('.tombol-hapusanggotabelumaktif').on('click', function (e) {
 
+    e.preventDefault();
+    const href = $(this).attr('href');
+
+    Swal.fire({
+        title: 'Yakin?',
+        text: "Akan menghapus akun?",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya'
+    }).then((result) => {
+        if (result.value) {
+            document.location.href = href;
+        }
+    })
+
+});
+$('.tombol-hapusseluruh').on('click', function (e) {
+
+    e.preventDefault();
+    const href = $(this).attr('href');
+
+    Swal.fire({
+        title: 'Yakin?',
+        text: "Akan menghapus akun?",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya'
+    }).then((result) => {
+        if (result.value) {
+            document.location.href = href;
+        }
+    })
+
+});
 $('.tombol-hapusanggota').on('click', function (e) {
 
     e.preventDefault();

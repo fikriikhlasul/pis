@@ -43,13 +43,13 @@
                       </div>
                     </ul>
                   </li>
-                  <li  class="has-sub <?php if($title == "Manajemen Data Seluruh Anggota"||$title == "Manajemen Data Anggota Aktif"||$title == "Manajemen Data Alumni"||$title == "Manajemen Data Dosen") echo "active expand";?> " >
+                  <li  class="has-sub <?php if($title  == "Manajemen Data Pendaftar"||$title == "Manajemen Data Seluruh Anggota"||$title == "Manajemen Data Anggota Aktif"||$title == "Manajemen Data Alumni"||$title == "Manajemen Data Dosen") echo "active expand";?> " >
                     <a class="sidenav-item-link"  data-toggle="collapse" data-target="#data-master"
                       aria-expanded="false" aria-controls="account">
                       <i class="mdi mdi-database-edit"></i>
                       <span class="nav-text">Data Master</span> <b class="caret"></b>
                     </a>
-                    <ul  class="collapse <?php if($title == "Manajemen Data Seluruh Anggota"||$title == "Manajemen Data Anggota Aktif"||$title == "Manajemen Data Alumni"||$title == "Manajemen Data Dosen") echo "show";?>"  id="data-master"
+                    <ul  class="collapse <?php if($title  == "Manajemen Data Pendaftar"||$title == "Manajemen Data Seluruh Anggota"||$title == "Manajemen Data Anggota Aktif"||$title == "Manajemen Data Alumni"||$title == "Manajemen Data Dosen") echo "show";?>"  id="data-master"
                       data-parent="#sidebar-menu">
                       <div class="sub-menu">
 
@@ -74,6 +74,12 @@
                             <li <?php if($title  == "Manajemen Data Dosen") echo "class='active'";?>>
                               <a class="sidenav-item-link" href="<?= base_url();?>admin/data-dosen">
                                 <span class="nav-text mdi mdi-teach"> Data Dosen</span>
+                                
+                              </a>
+                            </li>
+                            <li <?php if($title  == "Manajemen Data Pendaftar") echo "class='active'";?>>
+                              <a class="sidenav-item-link" href="<?= base_url();?>admin/data-anggota-belum-aktif">
+                                <span class="nav-text mdi mdi-account-alert"> Verifikasi Anggota</span>
                                 
                               </a>
                             </li>

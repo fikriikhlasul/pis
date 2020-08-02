@@ -1,6 +1,6 @@
 <div class="content-wrapper">
           <div class="content">							<!-- First Row  -->
-							<div class="row">
+		  <div class="row">
 								<div class="col-md-6 col-lg-6 col-xl-3">
 									<div class="media widget-media p-4 bg-white border">
 										<div class="icon rounded-circle mr-4 bg-primary">
@@ -8,7 +8,7 @@
 										</div>
 										<div class="media-body align-self-center">
 											<h4 class="text-primary mb-2"><?= $total_anggota?> Orang</h4>
-											<p>Total Anggota</p>
+											<p>Total Pengguna</p>
 										</div>
 									</div>
 								</div>
@@ -50,9 +50,9 @@
                                     <div class="card-header card-header-border-bottom d-flex justify-content-between">
 											<h2>Data Alumni</h2>
 
-											<a href="tambah-alumni" target="_blank" class="btn btn-outline-primary btn-sm text-uppercase">
+											<!-- <a href="tambah-alumni" target="_blank" class="btn btn-outline-primary btn-sm text-uppercase">
 												<i class=" mdi mdi-account-plus mr-1"></i> Tambah
-											</a>
+											</a> -->
                                     </div>
                                     <div class="card-body">
 											<div class="basic-data-table">

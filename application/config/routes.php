@@ -62,7 +62,23 @@ $route['404_override'] = 'my404';
 $route['translate_uri_dashes'] = FALSE;
 $route['blog'] = 'landing/blog';
 $route['admin'] = 'admin/dashboard';
-$route['user'] = 'user/dashboard';
+$route['anggota/dashboard'] = 'user/anggota';
+$route['alumni/dashboard'] = 'user/alumni';
+$route['dosen/dashboard'] = 'user/dosen';
+$route['anggota/profile'] = 'user/profileanggota';
+$route['alumni/profile'] = 'user/profilealumni';
+$route['dosen/profile'] = 'user/profiledosen';
+
+$route['anggota/changepassword'] = 'user/changepassword';
+$route['alumni/changepassword'] = 'user/changepassword';
+$route['dosen/changepassword'] = 'user/changepassworddosen';
+
+$route['anggota/removepicture'] = 'user/removepicture';
+$route['alumni/removepicture'] = 'user/removepicture';
+$route['dosen/removepicture'] = 'user/removepicture';
+
+
+
 $route['forgot-password'] = 'auth/forgotpassword';
 $route['change-password'] = 'auth/changepassword';
 //route data semua role//
@@ -70,6 +86,9 @@ $route['admin/data-seluruh-anggota'] = 'admin/dataseluruhanggota';
 $route['admin/data-anggota-aktif'] = 'admin/dataanggotaaktif';
 $route['admin/data-alumni'] = 'admin/dataalumni';
 $route['admin/data-dosen'] = 'admin/datadosen';
+$route['admin/data-anggota-belum-aktif'] = 'admin/dataanggotabelumaktif';
+$route['admin/verifikasi-anggota-belum-aktif/(:any)'] = 'admin/verifikasi/$1';
+$route['admin/hapus-anggota-belum-aktif/(:any)'] = 'admin/hapusanggotabelumaktif/$1';
 //route kelola role anggota//
 $route['admin/hapus-anggota/(:any)'] = 'admin/hapusanggota/$1';
 $route['admin/ubah-anggota/(:any)'] = 'admin/editanggota/$1';
@@ -79,12 +98,12 @@ $route['admin/tambah-anggota/(:any)'] = 'admin/tambahanggota/$1';
 $route['admin/hapus-alumni/(:any)'] = 'admin/hapusalumni/$1';
 $route['admin/ubah-alumni/(:any)'] = 'admin/editalumni/$1';
 $route['admin/detail-alumni/(:any)'] = 'admin/detailalumni/$1';
-$route['admin/tambah-alumni/(:any)'] = 'admin/tambahalumni/$1';
+// $route['admin/tambah-alumni'] = 'admin/tambahalumni';
 //route kelola role dosen//
 $route['admin/hapus-dosen/(:any)'] = 'admin/hapusdosen/$1';
 $route['admin/ubah-dosen/(:any)'] = 'admin/editdosen/$1';
 $route['admin/detail-dosen/(:any)'] = 'admin/detaildosen/$1';
-$route['admin/tambah-dosen/(:any)'] = 'admin/tambahdosen/$1';
+$route['admin/tambah-dosen'] = 'admin/tambahdosen';
 
 
 

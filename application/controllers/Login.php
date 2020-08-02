@@ -48,13 +48,20 @@ class Login extends CI_Controller
                 if (password_verify($password, $user['password'])) {
                     $data = [
                         'username' => $user['username'],
-                        'role_id' => $user['role_id']
+                        'role_id' => $user['role_id'],
+                        'status' => $user['status']
                     ];
                     $this->session->set_userdata($data);
                     if ($user['role_id'] == 1) {
                         redirect('admin/dashboard');
-                    } else {
-                        redirect('user/dashboard');
+                    } elseif($user['status'] == 'Mahasiswa') {
+                        redirect('anggota/dashboard');
+                    }
+                    elseif($user['status'] == 'Alumni') {
+                        redirect('alumni/dashboard');
+                    }
+                    else{
+                        redirect('dosen/dashboard');
                     }
                 } else {
                     $_SESSION['message'] = "

@@ -58,7 +58,7 @@
                                             <div class="tab-content px-3 px-xl-5" id="myTabContent">
                                                     <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 										    <div class="card-body">
-                                            <?= form_open_multipart('user/profile'); ?>
+                                            <?= form_open_multipart(''); ?>
                                             <div class="form-row">
 
 													<div class="col-md-6 mb-3">
@@ -113,7 +113,22 @@
                                                     <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
                                                     </div>
 
+                                                    <?php if($user['status']=='Dosen'){?>
                                                     <div class="col-md-6 mb-3">
+                                                    <label class="text-dark font-weight-medium">NIP</label>
+														<div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                        
+                                                            <span class="input-group-text">
+                                                           <i class="mdi mdi-book-open"></i>
+                                                            </span>
+                                                        </div>
+                                                        <input readonly type="text" class="form-control" name="nip" value="<?=$user['nip']?>" placeholder="nip" required>
+                                                    </div>
+                                                    <?= form_error('nip', '<small class="text-danger pl-3">', '</small>'); ?>
+                                                    </div>
+                                                    <?php }else{?>
+                                                        <div class="col-md-6 mb-3">
                                                     <label class="text-dark font-weight-medium">NIM</label>
 														<div class="input-group">
                                                         <div class="input-group-prepend">
@@ -125,7 +140,8 @@
                                                     </div>
                                                     <?= form_error('nim', '<small class="text-danger pl-3">', '</small>'); ?>
                                                     </div>
-                                                    
+                                                    <?php }?>
+                                                    <?php if($user['status']=='Mahasiswa'){?>    
                                                     <div class="col-md-6 mb-3">
                                                     <label class="text-dark font-weight-medium">Jurusan</label>
 														<div class="input-group">
@@ -138,19 +154,14 @@
                                                     </select>
                                                 </div>
                                                 <?= form_error('jurusan', '<small class="text-danger pl-3">', '</small>'); ?>
-                                                    </div>
-                                                   
-<!-- 
-                                                     <div class="col-md-12">
-                                                    <label class="text-dark font-weight-medium">Jurusan</label>
-														<div class="input-group">
-                                                        
-                                                    <input type="file" id="image" name="image" class="custom-file-input" id="customFile" onchange="sampul()">
-                                                    <label class="custom-file-label" for="customFile">Pilih gambar..</label>
-                                                    <?//= form_error('image', '<small class="text-danger pl-3">', '</small>'); ?>
-                                                    </div>
-                                                    </div> -->
                                                 </div>
+                                                    <?php }else{?>
+                                                        <div class="col-md-6 mb-3">
+                                                        </div>
+                                                    <?php }?>
+
+                                                </div>
+                                                
                                                 <button type="submit" class="btn btn-primary">Simpan</button>
 											</form>
 										</div>
@@ -167,7 +178,7 @@
 </div>
 </div>
                     <!-- Tooltip Modal -->
-                    <form method='post' action='<?=base_url();?>user/profile' enctype='multipart/form-data'>
+                    <form method='post' action='' enctype='multipart/form-data'>
                     <div class="modal fade" id="exampleModalTooltip" tabindex="-1" role="dialog" aria-labelledby="exampleModalTooltip" aria-hidden="true">
 							<div class="modal-dialog modal-dialog-centered" role="document">
                             
@@ -184,8 +195,12 @@
                                     <input type="text" style="display:none" class="form-control" name="tanggal_lahir" value="<?=$user['tanggal_lahir']?>" required>
                                     <input type="text" style="display:none" class="form-control" name="username" value="<?=$user['username']?>" required>
                                     <input type="text" style="display:none" class="form-control" name="email" value="<?=$user['email']?>" required>
+                                    <?php if($user['status']=='Mahasiswa'||$user['status']=='Alumni'){?>
                                     <input type="text" style="display:none" class="form-control" name="nim" value="<?=$user['nim']?>" required>
                                     <input type="text" style="display:none" class="form-control" name="jurusan" value="<?=$user['jurusan']?>" required>
+                                    <?php }else {?>
+                                    <input type="text" style="display:none" class="form-control" name="nip" value="<?=$user['nip']?>" required>
+                                    <?php }?>
                                     <input type="file" id="image" name="image" class="custom-file-input" id="customFile" onchange="sampul()">
                                     <label class="custom-file-label" for="customFile">Pilih gambar..</label>
                                     <?= form_error('image', '<small class="text-danger pl-3">', '</small>'); ?>

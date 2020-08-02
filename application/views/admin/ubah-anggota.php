@@ -84,12 +84,13 @@
                                                             </span>
                                                         </div>
                                                         <select class="form-control" name="jurusan">
-														<option value="<?=$anggota['jurusan']?>" >--<?=$anggota['jurusan']?>--</option>
-														<option value="Sistem Informasi" >Sistem Informasi</option>
-														<option value="Teknik Informatika" >Teknik Informatika</option>
-														<option value="Matematika" >Matematika</option>
-														<option value="Teknik Industri" >Teknik Industri</option>
-														<option value="Teknik Elektro" >Teknik Elektro</option>
+                                                        <?php foreach($jurusan as $j) : ?>
+                                                        <?php if ($j['jurusan']==$anggota['jurusan']):?>
+                                                        <option value="<?=$j['jurusan'];?>" selected><?=$j['jurusan'];?></option>
+                                                        <?php else :?>
+                                                        <option value="<?=$j['jurusan'];?>" ><?=$j['jurusan'];?></option>
+                                                        <?php endif;?>
+                                                        <?php endforeach;?>
 													</select>
                                                 </div>
                                                 <?= form_error('jurusan', '<small class="text-danger pl-3">', '</small>'); ?>
@@ -107,10 +108,13 @@
                                                             </span>
                                                         </div>
 														<select class="form-control" name="tahun_masuk_univ">
-														<option value="<?=$anggota['tahun_masuk_univ']?>" >--<?=$anggota['tahun_masuk_univ']?>--</option>
-														<?php foreach ($angkatan as $an) :?>
-														<option value="<?=$an['angkatan_univ']?>" ><?=$an['angkatan_univ']?></option>
-														<?php endforeach;?>
+                                                        <?php foreach($angkatan as $an) : ?>
+                                                        <?php if ($an['angkatan_univ']==$anggota['tahun_masuk_univ']):?>
+                                                        <option value="<?=$an['angkatan_univ'];?>" selected><?=$an['angkatan_univ'];?></option>
+                                                        <?php else :?>
+                                                        <option value="<?=$an['angkatan_univ'];?>" ><?=$an['angkatan_univ'];?></option>
+                                                        <?php endif;?>
+                                                        <?php endforeach;?>
 													</select>
 													</div>
                                                     <?= form_error('tahun_masuk_univ', '<small class="text-danger pl-3">', '</small>'); ?>
@@ -154,15 +158,39 @@
                                                             </span>
                                                         </div>
 														<select class="form-control" name="puzzle">
-														<option value="<?=$anggota['puzzle']?>" >--<?=$anggota['puzzle']?>--</option>
-														<?php foreach ($puzzle as $pz) :?>
-														<option value="<?=$pz['angkatan_puzzle']?>" ><?=$pz['angkatan_puzzle']?></option>
-														<?php endforeach;?>
+														<?php foreach($puzzle as $pz) : ?>
+                                                        <?php if ($pz['angkatan_puzzle']==$anggota['puzzle']):?>
+                                                        <option value="<?=$pz['angkatan_puzzle'];?>" selected><?=$pz['angkatan_puzzle'];?></option>
+                                                        <?php else :?>
+                                                        <option value="<?=$pz['angkatan_puzzle'];?>" ><?=$pz['angkatan_puzzle'];?></option>
+                                                        <?php endif;?>
+                                                        <?php endforeach;?>
 													</select>
 													</div>
                                                     <?= form_error('puzzle', '<small class="text-danger pl-3">', '</small>'); ?>
 													</div>
 													
+                                                    <div class="col-md-4 mb-3 border-top w-100">
+                                                    <label class="text-dark font-weight-medium mt-3">Status</label>
+														<div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">
+                                                           <i class="mdi mdi-office-building"></i>
+                                                            </span>
+                                                        </div>
+													<select class="form-control" name="status">
+														<?php foreach($status as $s) : ?>
+                                                        <?php if ($s['status']==$anggota['status']):?>
+                                                        <option value="<?=$s['status'];?>" selected><?=$s['status'];?></option>
+                                                        <?php else :?>
+                                                        <option value="<?=$s['status'];?>" ><?=$s['status'];?></option>
+                                                        <?php endif;?>
+                                                        <?php endforeach;?>
+													</select>
+													</div>
+                                                    <?= form_error('status', '<small class="text-danger pl-3">', '</small>'); ?>
+													</div>
+
                                                     <div class="col-md-4 mb-3 border-top w-100">
                                                     <label class="text-dark font-weight-medium mt-3">Jabatan Organisasi</label>
 														<div class="input-group">
@@ -171,14 +199,17 @@
                                                            <i class="mdi mdi-office-building"></i>
                                                             </span>
                                                         </div>
-														<select class="form-control" name="status">
-														<option value="<?=$anggota['status']?>" >--<?=$anggota['status']?>--</option>
-														<option value="Anggota Aktif" >Anggota Aktif</option>
-														<option value="Alumni" >Alumni</option>
-														<option value="Dosen" >Dosen</option>
+													<select class="form-control" name="jabatan">
+														<?php foreach($jabatan as $j) : ?>
+                                                        <?php if ($j['jabatan']==$anggota['jabatan']):?>
+                                                        <option value="<?=$j['jabatan'];?>" selected><?=$j['jabatan'];?></option>
+                                                        <?php else :?>
+                                                        <option value="<?=$j['jabatan'];?>" ><?=$j['jabatan'];?></option>
+                                                        <?php endif;?>
+                                                        <?php endforeach;?>
 													</select>
 													</div>
-                                                    <?= form_error('status', '<small class="text-danger pl-3">', '</small>'); ?>
+                                                    <?= form_error('jabatan', '<small class="text-danger pl-3">', '</small>'); ?>
 													</div>
 
 													<div class="col-md-4 mb-3 border-top w-100">
@@ -190,10 +221,13 @@
                                                             </span>
                                                         </div>
 														<select class="form-control" name="bidang_riset">
-														<option value="<?=$anggota['bidang_riset']?>" >--<?=$anggota['bidang_riset']?>--</option>
-														<?php foreach ($bidang_riset as $br) :?>
-														<option value="<?=$br['bidang_riset']?>" ><?=$br['bidang_riset']?></option>
-														<?php endforeach;?>
+														<?php foreach($bidang_riset as $br) : ?>
+                                                        <?php if ($br['bidang_riset']==$anggota['bidang_riset']):?>
+                                                        <option value="<?=$br['bidang_riset'];?>" selected><?=$br['bidang_riset'];?></option>
+                                                        <?php else :?>
+                                                        <option value="<?=$br['bidang_riset'];?>" ><?=$br['bidang_riset'];?></option>
+                                                        <?php endif;?>
+                                                        <?php endforeach;?>
 													</select>
 													</div>
                                                     <?= form_error('bidang_riset', '<small class="text-danger pl-3">', '</small>'); ?>
@@ -208,9 +242,13 @@
                                                             </span>
                                                         </div>
 														<select class="form-control" name="jenis_kelamin">
-														<option value="<?=$anggota['jenis_kelamin']?>" >--<?=$anggota['jenis_kelamin']?>--</option>
-														<option value="Laki-laki" >Laki-laki</option>
+														<?php if($anggota['jenis_kelamin']=='Laki-laki') :?>
+														<option value="Laki-laki" selected >Laki-laki</option>
 														<option value="Perempuan" >Perempuan</option>
+                                                        <?php else :?>
+                                                        <option value="Laki-laki"  >Laki-laki</option>
+														<option value="Perempuan" selected >Perempuan</option>
+                                                        <?php endif;?>
 													</select>
 													</div>
                                                     <?= form_error('jenis_kelamin', '<small class="text-danger pl-3">', '</small>'); ?>
@@ -225,11 +263,13 @@
                                                             </span>
                                                         </div>
 														<select class="form-control" name="agama">
-														<option value="<?=$anggota['agama']?>" >--<?=$anggota['agama']?>--</option>
-														<option value="Islam" >Islam</option>
-														<option value="Kristen" >Kristen</option>
-														<option value="Hindu" >Hindu</option>
-														<option value="Budha" >Koordinator</option>
+														<?php foreach($agama as $ag) : ?>
+                                                        <?php if($ag['agama']==$anggota['agama']) :?>
+                                                            <option value="<?= $ag['agama']?>" selected><?= $ag['agama']?></option>
+                                                        <?php else : ?>
+                                                            <option value="<?= $ag['agama']?>" ><?= $ag['agama']?></option>
+                                                        <?php endif;?>
+                                                        <?php endforeach;?>
 													</select>
 													</div>
                                                     <?= form_error('agama', '<small class="text-danger pl-3">', '</small>'); ?>

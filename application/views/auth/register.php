@@ -89,6 +89,14 @@
 						</select>
 						<span class="focus-input100"></span>
 					</div>
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Status is required">
+						<select class="input100" name="status" form='isian'>
+						<option value="">--Pilih Status--</option>
+						<option value="Alumni">Alumni</option>
+						<option value="Mahasiswa">Mahasiswa</option>
+						</select>
+						<span class="focus-input100"></span>
+					</div>
 					
 					<div class="wrap-input100 validate-input m-b-16" data-validate = "Nomor Handphone is required">
 						<input class="input100" type="text" name="no_hp" placeholder="Nomor Handphone">

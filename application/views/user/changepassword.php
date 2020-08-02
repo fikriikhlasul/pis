@@ -53,7 +53,7 @@
                                             </ul>
                                             <div class="tab-content px-3 px-xl-5 mt-5" id="myTabContent">
 												<div class="tab-pane fade fade show active" id="settings" role="tabpanel" aria-labelledby="settings-tab">
-                                                <form method='post' action='<?=base_url();?>user/changepassword'>
+                                                <form method='post' action=''>
                                                 <div class="form-group">
                                                     
 													<input type="password" class="form-control" name="current_password" placeholder="Password lama">

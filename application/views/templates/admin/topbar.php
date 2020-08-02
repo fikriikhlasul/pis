@@ -38,7 +38,7 @@
                       </li>
 
                       <li>
-                        <a href="profile">
+                        <a href="<?= base_url();?>admin/profile">
                           <i class="mdi mdi-account"></i> My Profile
                         </a>
                       </li>

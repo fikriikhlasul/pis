@@ -48,11 +48,11 @@
                                 <div class="col-12">
 									<div class="card card-default">
                                     <div class="card-header card-header-border-bottom d-flex justify-content-between">
-											<h2>Data Dosen</h2>
+											<h2>Verifikasi Anggota</h2>
 
-											<a href="tambah-dosen"  class="btn btn-outline-primary btn-sm text-uppercase">
+											<!-- <a href="tambah-dosen"  class="btn btn-outline-primary btn-sm text-uppercase">
 												<i class=" mdi mdi-account-plus mr-1"></i> Tambah
-											</a>
+											</a> -->
                                     </div>
                                     <div class="card-body">
 											<div class="basic-data-table">
@@ -63,23 +63,33 @@
                                             <th>Nama</th>
                                             <th>Username</th>
                                             <th>email</th>
-                                            <th>NIP</th>
+                                            <th style="text-align: center">Status Anggota</th>
+                                            <th style="text-align: center">Status Akun</th>
                                             <th>Aksi</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                            <?php $i = 1;?>
-                                            <?php foreach ($data_dosen as $dd) : ?>     
+                                            <?php $i = 1;                                                
+                                            ?>
+                                            <?php foreach ($data_anggota_belum_aktif as $dd) : ?>     
                                             <tr>
+                                            <?php
+                                             $status_akun = $dd['is_active'];
+                                                if($status_akun>0){
+                                                    $sa = "Aktif";
+                                                }else
+                                                {
+                                                    $sa = "Belum Aktif";
+                                                }?>
                                             <td><?= $i; ?></td>
                                             <td><?= $dd['name']; ?></td>
                                             <td><?= $dd['username']; ?></td>
                                             <td><?= $dd['email']; ?></td>
-                                            <td><?= $dd['nip']; ?></td>
+                                            <td style="text-align: center"><h8><?= $dd['status']; ?></h8></td>
+                                            <td style="text-align: center" class="ml-3 mt-2 badge badge-danger"><h8 style="color:gold"><?= $sa; ?></h8></td>
                                             <td>
-                                            <a href="<?= base_url('admin/detail-dosen/') . $dd['username']; ?>" class="badge badge-info">detail</a>
-                                            <a href="<?= base_url('admin/ubah-dosen/') . $dd['username']; ?>" class="badge badge-success">edit</a>
-                                            <a href="<?= base_url('admin/hapus-dosen/') . $dd['username']; ?>" class="badge badge-danger tombol-hapusdosen">delete</a>                    
+                                            <a href="<?= base_url('admin/verifikasi-anggota-belum-aktif/') . $dd['username']; ?>" class="badge badge-success">Verifikasi</a>
+                                            <a href="<?= base_url('admin/hapus-anggota-belum-aktif/') . $dd['username']; ?>" class="badge badge-danger tombol-hapusanggotabelumaktif">delete</a>                    
                                             </td>
                                         </tr>
                                         <?php $i++; ?>
